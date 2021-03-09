@@ -14,6 +14,23 @@ class TimeModel(models.Model):
     class Meta:
         abstract = True
 
+#유저정보 테이블
+class UserInfo(TimeModel):
+    JOIN_TYPE = [
+        ('normal','일반'),
+        ('kakao','카카오')
+    ]
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    type = models.CharField(max_length= 10, verbose_name='로그인 타입')
+
+    def __int__(self):
+        return self.id
+
+    class Meta:
+        db_table = 'auth_user_info'
+        verbose_name = '유저 추가정보'
+        verbose_name_plural = '유저 추가정보'
+
 #상품정보 테이블
 class ProductInfo(TimeModel):
     name = models.CharField(max_length=30, verbose_name='상품 이름')
@@ -80,7 +97,7 @@ class CleanInfo(TimeModel):
         ('PREMIUM 코스','premium')
     ]
 
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    user = models.ForeignKey('UserInfo',on_delete=models.CASCADE)
     count = models.IntegerField(verbose_name='수량')
     clean_type = models.CharField(max_length=15, choices=CLEAN_TYPE)
     isVideo = models.BooleanField(verbose_name='비디오 여부')
