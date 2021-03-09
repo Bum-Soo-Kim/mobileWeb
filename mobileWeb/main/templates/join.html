@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block contents %}
+
+<div>
+    <input type = 'text' id = 'id' placeholder="id">
+    <input type = 'password' id = 'pw' placeholder="pw">
+    <input type = 'password' id = 'pwconfirm' placeholder="pwconfirm">
+    <input type = 'name' id = 'name' placeholder = 'name'>
+    <button id = 'join'>join</button>
+</div>
+<script>
+var JOIN_FUNC = {};
+(function(join_func){
+    var props = {
+
+    };
+
+    $.extend(props, {
+        event : function(){
+            //회원가입 버튼 클릭
+            $('#join').click(function(){
+                var id = $('#id').val()
+                var pw = $('#pw').val()
+                var pwconfirm = $('#pwconfirm').val()
+                var name = $('#name').val()
+
+                if(COMMON.isEmpty(id)){
+                    alert('아이디를 입력해주세요')
+                    return
+                }
+                if(COMMON.isEmpty(pw)){
+                    alert('비밀번호를 입력해주세요')
+                    return
+                }
+                if(COMMON.isEmpty(pwconfirm)){
+                    alert('비밀번호 확인을 입력해주세요')
+                    return
+                }
+                if(COMMON.isEmpty(name)){
+                    alert('이름을 입력해 주세요')
+                    return
+                }
+
+                if(!COMMON.isSame(pw,pwconfirm)){
+                    alert('비밀번호가 일치하지 않습니다.')
+                    return
+                }
+
+                $.ajax({
+                    type : 'POST',
+                    url : 'getJoin',
+                    data : {'id' : id, 'pw' : pw, 'pwconfirm':pwconfirm,'name':name},
+                    dataType : 'json'
+                })
+            })
+        }
+    });
+
+    $.extend(join_func,{
+        init : function(){
+            props.event()
+        }
+    });
+
+    return join_func
+}(JOIN_FUNC))
+
+$(document).ready(function(){
+    JOIN_FUNC.init()
+})
+</script>
+{% endblock %}

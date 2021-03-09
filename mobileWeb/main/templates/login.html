@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block contents %}
+<div>
+    <div>
+        id
+        <input type="text" id = 'id'>
+    </div>
+    <div>
+        pw
+        <input type="password" id = 'pw'>
+    </div>
+    <button id = 'login'>login</button>
+    <button id = 'join'>join</button>
+</div>
+<script>
+var LOGIN_FUNC = {};
+(function(login_func){
+    var props = {
+        
+    };
+
+    $.extend(props, {
+        event : function(){
+            document.getElementById('login').addEventListener('click',
+                function(){
+                    alert(1);
+                }
+            )
+
+            document.getElementById('join').addEventListener('click', 
+            function(){
+                location.href = 'http://127.0.0.1:8000/join/'
+            })
+        },
+    });
+
+    $.extend(login_func,{
+        init : function(){
+            props.event()
+        }
+    });
+
+
+    return login_func;
+}(LOGIN_FUNC));
+
+$(document).ready(function(){
+    LOGIN_FUNC.init()
+})
+</script>
+{% endblock %}
