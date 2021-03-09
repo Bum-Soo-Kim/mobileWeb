@@ -49,7 +49,7 @@ var JOIN_FUNC = {};
                 $.ajax({
                     type : 'POST',
                     url : 'getJoin',
-                    data : {'id' : id, 'pw' : pw, 'pwconfirm':pwconfirm,'name':name},
+                    data : {'id' : id, 'pw' : pw,'name':name, 'type':'normal'},
                     dataType : 'json'
                 })
             })

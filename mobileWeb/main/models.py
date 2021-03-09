@@ -30,7 +30,7 @@ class UserInfo(TimeModel):
         db_table = 'auth_user_info'
         verbose_name = '유저 추가정보'
         verbose_name_plural = '유저 추가정보'
-
+    
 #상품정보 테이블
 class ProductInfo(TimeModel):
     name = models.CharField(max_length=30, verbose_name='상품 이름')
