@@ -23,7 +23,27 @@ var LOGIN_FUNC = {};
         event : function(){
             document.getElementById('login').addEventListener('click',
                 function(){
-                    alert(1);
+                    var id = $('#id').val()
+                    var pw = $('#pw').val()       
+                    if(COMMON.isEmpty(id)){
+                        alert('아이디를 입력해주세요')
+                        return
+                    }
+
+                    if(COMMON.isEmpty(pw)){
+                        alert('비밀번호를 입력해주세요')
+                        return
+                    }
+
+                    $.ajax({
+                        type:'POST',
+                        url : 'getLogin',
+                        data : {'id':id,'pw':pw,'type':'normal'},
+                        dataType : 'json',
+                        success : function(res){
+                            console.log(res)
+                        }
+                    })
                 }
             )
 
