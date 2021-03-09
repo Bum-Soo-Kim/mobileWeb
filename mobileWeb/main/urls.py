@@ -10,6 +10,8 @@ urlpatterns = [
     path('login/',login.renderPage),
 
     #회원가입 페이지
-    path('join/',join.renderPage),
+    path('join/',join.renderPage, name = 'join'),
+    path('join/redirect',join.redirectPage,name='redirect'),
     path('join/getJoin',join.getJoin),
+    path('join/kakaoJoin',join.kakaoLogin),
 ]
