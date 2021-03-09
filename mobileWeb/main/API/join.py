@@ -39,3 +39,9 @@ def getJoin(request):
         raise e
 
     return HttpResponse(json.dumps(result))
+
+def kakaoLogin(request):
+    result = {'code':'','msg':''}
+    
+
+    return HttpResponse

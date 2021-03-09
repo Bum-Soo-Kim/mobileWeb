@@ -8,6 +8,9 @@
     <input type = 'name' id = 'name' placeholder = 'name'>
     <button id = 'join'>join</button>
 </div>
+<div>
+    <button id='kakao'>kakao</button>
+</div>
 <script>
 var JOIN_FUNC = {};
 (function(join_func){
@@ -50,8 +53,18 @@ var JOIN_FUNC = {};
                     type : 'POST',
                     url : 'getJoin',
                     data : {'id' : id, 'pw' : pw,'name':name, 'type':'normal'},
-                    dataType : 'json'
+                    dataType : 'json',
+                    success : function(res){
+                        if(res.code == 1){
+                            alert(res.msg);
+                        }else{
+                            alert(res.msg)
+                        }
+                    }
                 })
+            });
+            $('#kakao').click(function(){
+                
             })
         }
     });

@@ -30,7 +30,7 @@ class UserInfo(TimeModel):
         db_table = 'auth_user_info'
         verbose_name = '유저 추가정보'
         verbose_name_plural = '유저 추가정보'
-    
+
 #상품정보 테이블
 class ProductInfo(TimeModel):
     name = models.CharField(max_length=30, verbose_name='상품 이름')
@@ -106,3 +106,13 @@ class CleanInfo(TimeModel):
         db_table = 'clean_info'
         verbose_name = '세척 신청'
         verbose_name_plural = '세척 신청'
+
+class SocialAccount(models.Model):
+    type = models.CharField(max_length=50, verbose_name='종류')
+    key = models.CharField(max_length=300, verbose_name='키 값')
+    secret_key = models.CharField(max_length=300, verbose_name='secret key', null=True)
+
+    class Meta:
+        db_table = 'social_account'
+        verbose_name = '소셜 계정 관리'
+        verbose_name_plural = '소셜 계정 관리'
