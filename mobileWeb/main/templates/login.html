@@ -37,7 +37,7 @@ var LOGIN_FUNC = {};
 
                     $.ajax({
                         type:'POST',
-                        url : 'getLogin',
+                        url : 'kakaoLogin',
                         data : {'id':id,'pw':pw,'type':'normal'},
                         dataType : 'json',
                         success : function(res){

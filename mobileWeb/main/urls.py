@@ -9,6 +9,7 @@ urlpatterns = [
     #로그인 페이지
     path('login/',login.renderPage),
     path('login/getLogin',login.getLogin),
+
     #회원가입 페이지
     path('join/',join.renderPage, name = 'join'),
     path('join/redirect',join.redirectPage,name='redirect'),

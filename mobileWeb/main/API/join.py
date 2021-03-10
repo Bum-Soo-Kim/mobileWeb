@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from main.models import UserInfo, SocialAccount
+from .common.kakao import KAKAO
 import json, requests
 
 def renderPage(request):
@@ -15,13 +16,10 @@ def redirectPage(request):
     try : 
         code = request.GET['code']
         key = SocialAccount.objects.filter(type = 'kakao_rest_api').get().key
-        redirect_uri = 'http://127.0.0.1:8000/join/redirect'
-        access_uri = 'https://kauth.kakao.com/oauth/token?grant_type=authorization_code&client_id='+key+'&redirect_uri='+redirect_uri+'&code='+code
-        token_data = requests.get(access_uri).json()
-        access_token = token_data['access_token']
+        token = KAKAO.getToken(key,code)
+        access_token = token['access_token']
 
-        profile_uri = 'https://kapi.kakao.com/v2/user/me?access_token='+str(access_token)
-        profile_data = requests.get(profile_uri).json()
+        profile_data = KAKAO.getProfile(access_token)
         id = profile_data['id']
         kid = 'kakao_'+str(id)
         name = profile_data['properties']['nickname']
@@ -84,9 +82,7 @@ def kakaoLogin(request):
 
     try:
         key = SocialAccount.objects.filter(type = 'kakao_rest_api').get().key
-        login_uri = 'https://kauth.kakao.com/oauth/authorize?'
-        redirect_uri = 'http://127.0.0.1:8000/join/redirect'
-        login_uri += 'client_id='+key+'&redirect_uri='+redirect_uri+'&response_type=code'
+        login_uri = KAKAO.getUri(key)
 
     except Exception as e:
         result['code'] = e
