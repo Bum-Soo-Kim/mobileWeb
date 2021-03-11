@@ -33,3 +33,16 @@ def getLogin(request):
         result['msg'] = e
 
     return HttpResponse(json.dumps(result))
+
+def kakaoRedirect(request):
+    result = {'code':'','msg':''}
+
+    try:
+        1
+
+    except Exception as e:
+        result['code'] = e
+        result['msg'] = e
+        raise e
+
+    return redirect('login')

@@ -13,6 +13,9 @@ var COMMON = COMMON || {};
                 return false
             }
             return true
-        }
+        },
+        setCookie : function(key, val, exp){
+            
+        },
     })
 }(COMMON, $))

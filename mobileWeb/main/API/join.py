@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User
+from django.contrib.auth import login, authenticate
 from main.models import UserInfo, SocialAccount
 from .common.kakao import KAKAO
 import json, requests
@@ -25,8 +26,13 @@ def redirectPage(request):
         name = profile_data['properties']['nickname']
 
         if User.objects.filter(username = kid).exists():
-            result['code'] = 0
-            result['msg'] = '이미 가입한 아이디 입니다.'
+            user = authenticate(username = kid, password = id)
+            if user is None:
+                result['code'] = 0
+                result['msg'] = '이미 가입한 아이디 입니다.'
+            else:
+                result['code'] = 1
+                login(request, user)
         else:
             kuser = User.objects.create_user(
                 username = kid,
@@ -90,3 +96,15 @@ def kakaoLogin(request):
         raise(e)
 
     return redirect(login_uri)
+
+def getCertificate(request):
+    result = {'code':'','msg':'','key':''}
+
+    try:
+        key = SocialAccount.objects.filter(type = 'iamport_test').get().key
+        result['key'] = key
+
+    except Exception as e:
+        raise e
+
+    return HttpResponse(json.dumps(result))

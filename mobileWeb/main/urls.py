@@ -15,4 +15,5 @@ urlpatterns = [
     path('join/redirect',join.redirectPage,name='redirect'),
     path('join/getJoin',join.getJoin),
     path('join/kakaoJoin',join.kakaoLogin),
+    path('join/getCertificate',join.getCertificate)
 ]

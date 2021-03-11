@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block contents %}
 
+<script src = "https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <div>
     <input type = 'text' id = 'id' placeholder="id">
     <input type = 'password' id = 'pw' placeholder="pw">
@@ -11,11 +12,12 @@
 <div>
     <button id='kakao'>kakao</button>
 </div>
+<button id='cert'>certification</button>
 <script>
 var JOIN_FUNC = {};
 (function(join_func){
     var props = {
-
+        key : '',
     };
 
     $.extend(props, {
@@ -66,12 +68,40 @@ var JOIN_FUNC = {};
             $('#kakao').click(function(){
                 
             })
+            $('#cert').click(function(){
+                console.log(props.key)
+                IMP.certification({
+                    merchant_uid : props.key
+                }),
+                function(rsp){
+                    console.log(rsp)
+                    if(rsp.success){
+                        jQuery.ajax({
+                            url: "https://www.myservice.com/certifications", // 서비스 웹서버
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            data: { imp_uid: rsp.imp_uid }
+                        });
+                    }else{
+                        
+                    }
+                }
+            })
         }
     });
 
     $.extend(join_func,{
         init : function(){
             props.event()
+            $.ajax({
+                type : 'POST',
+                url : 'getCertificate',
+                dataType : 'json',
+                success : function(res){
+                    props.key = res.key
+                    console.log(props)
+                }
+            })
         }
     });
 
