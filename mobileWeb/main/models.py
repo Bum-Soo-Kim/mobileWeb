@@ -1,4 +1,5 @@
 import logging
+from typing import Tuple
 from django.db import models
 import MySQLdb
 from django.contrib.auth.models import User
@@ -100,7 +101,8 @@ class CleanInfo(TimeModel):
     user = models.ForeignKey('UserInfo',on_delete=models.CASCADE)
     count = models.IntegerField(verbose_name='수량')
     clean_type = models.CharField(max_length=15, choices=CLEAN_TYPE)
-    isVideo = models.BooleanField(verbose_name='비디오 여부')
+    isVideo = models.BooleanField(verbose_name='비디오 여부',null=True)
+    isAddiServ = models.BooleanField(verbose_name='살균,탈취',null=True)
 
     class Meta : 
         db_table = 'clean_info'

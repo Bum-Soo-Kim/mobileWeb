@@ -17,10 +17,26 @@ def getList(request):
 
     try:
         productlist = ProductInfo.objects.all()
+        print(productlist)
 
-
-        
     except Exception as e:
         raise e
 
+    return HttpResponse(json.dumps(result))
+
+def getDetail(request):
+    result = {'code':'','msg':'','data':[]}
+
+    try:
+        pid = request.POST.get('pid')
+        product = ProductInfo.objects.filter(id = pid)
+        tmp = []
+        for row in product:
+            tmp.append(row)
+
+        print(tmp)
+
+    except Exception as e:
+        raise e
+    
     return HttpResponse(json.dumps(result))
