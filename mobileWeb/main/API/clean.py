@@ -23,12 +23,14 @@ def estimateInfo(request):
         uid = req.get('uid')
         cleantype = req.get('cleantype')
         isVideo =req.get('isVideo')
+        isAddi = req.get('isAddi')
 
         CleanInfo.objects.create(
             user = uid,
             count = cnt,
             clean_type = cleantype,
-            isVideo = isVideo
+            isVideo = isVideo,
+            isAddiserv = isAddi,
         ).save()
         result['code']=1
 

@@ -9,6 +9,7 @@ def renderPage(request):
 
 def getData(request):
     result = {'code':'','msg':'','data':[]}
+    
 
     try : 
         1
@@ -17,4 +18,3 @@ def getData(request):
         raise e
 
     return HttpResponse(json.dumps(result))
-
