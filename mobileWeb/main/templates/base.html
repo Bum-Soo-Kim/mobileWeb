@@ -1,27 +1,163 @@
 <!DOCTYPE html>
 {% load static %}
 <html>
-    <head>
-        <script src = "{% static 'js/jquery-3.6.0.min.js' %}"></script>
-        <script src = "{% static 'js/common.js' %}"></script>
-        <script src = "{% static 'js/kakao.min.js' %}"></script>
-        <script src = "https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
-        <script>
-            $.ajax({
-                type : 'POST',
-                url : 'getCertificate',
-                data : {},
-                dataType : 'json',
-                success:function(res){
-                    IMP.init(res.key)
-                }
-            })
-        </script>
-        <meta charset="utf-8">
-        <title>shoepro</title>
-    </head>
-    <body>
-        {% block contents %}
-        {% endblock %}
-    </body>
+
+<head>
+    <link rel='stylesheet' href="{% static 'css/style.css' %}">
+    
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'js/common.js' %}"></script>
+    <script src="{% static 'js/kakao.min.js' %}"></script>
+    <script src="{% static 'js/prefixfree.min.js' %}"></script>
+    <script src="https://kit.fontawesome.com/1aa42dec2e.js" crossorigin="anonymous"></script>
+    <script src="{% static 'js/jqueury_shoepro.js' %}"></script>
+    <script>
+        $.ajax({
+            type: 'POST',
+            url: 'getCertificate',
+            data: {},
+            dataType: 'json',
+            success: function (res) {
+                IMP.init(res.key)
+            }
+        })
+    </script>
+    <meta charset="utf-8">
+    <title>shoepro</title>
+</head>
+<body>
+    <div class="tablet"> 
+    <header>
+        <nav>
+            <ul class="gnb">
+                <li class="utile menu">
+                    <a href="#none">
+                        <img src="{% static 'image/menu.svg' %}" alt="menu">
+                    </a>
+                </li>
+                <li class="logo">
+                    <a href="#none">
+                        <img src="{% static 'image/logo.svg' %}" alt="logo">
+                    </a>
+                </li>
+                <li class="utile cart">
+                    <a href="#none">
+                        <img src="{% static 'image/cart_r.svg' %}" alt="cart">
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="hiddenbar"></div>
+    {% block contents %}
+    {% endblock %}
+    <div class="menu_bg"></div>
+        <div class="fix">
+            <div class="menu_window">
+                <div class="exit">
+                    <img src="{% static 'image/arrow-left.svg' %}" alt="close">
+                </div>
+                <div class="user_acc">
+                    <ul class="checkbar">
+                        <li>
+                            <div class="check_btn">
+                                <a href="#none">
+                                    <div class="userimg">
+                                        <img src="{% static 'image/user_w.svg' %}" alt="login">
+                                    </div>
+                                    <span>로그인</span>
+                                </a>
+                            </div>
+                        </li>
+                
+                        <li>
+                            <div class="check_btn">
+                                <a href="#none">
+                                    <div class="userimg2">
+                                        <img src="{% static 'image/usernew_w.svg' %}" alt="newaccount">
+                                    </div>
+                                    <span>회원가입</span>
+                                </a>
+                            </div>
+                        </li>
+                
+                    </ul>
+                </div>
+                <div class="menu_list">
+                    <ul class="mlist">
+                        <li>
+                            <a href="#none" class="get_sub1">
+                                shop
+                                <img src="{% static 'image/agl.svg' %}" alt="angle" class="agl">
+                            </a>
+                        
+                                <ul class="sub_menu1">
+                                    <li><a href="#none">all</a></li>
+                                    <li><a href="#none">spray</a></li>
+                                    <li><a href="#none">kits</a></li>
+                                    <li><a href="#none">etc</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                            <a href="#none" class="get_sub2">
+                                service
+                                <img src="{% static 'image/agl.svg' %}" alt="angle" class="agl">
+                            </a>
+                            <ul class="sub_menu2">
+                                <li><a href="#none">clean</a></li>
+                                <li><a href="#none">wrap</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#none">
+                                how to
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#none">
+                                offline store
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#none">
+                                about
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    <footer>
+        <div class="footerlist">
+            <ul>
+                <li>address</li>
+                <li>faq's</li>
+                <li>terms & conditions</li>
+                <li>contact us</li>
+            </ul>
+        </div>
+        <div class="footimg">
+            <div class="footerlogo">
+                <img src="{% static 'image/logo.svg' %}" alt="logo">
+            </div>
+            <div class="snsicon">
+                <ul class="sns">
+                    <li>
+                        <img src="{% static 'image/youtube.png' %}" alt="youtube">
+                    </li>
+                    <li>
+                        <img src="{% static 'image/facebook.png' %}" alt="facebook">
+                    </li>
+                    <li>
+                        <img src="{% static 'image/instagram.png' %}" alt="instagram">
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    </div>
+</body>
 </html>
+<script>
+    
+</script>
