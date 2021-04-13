@@ -1,71 +1,105 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block contents %}
-<div>
-    <div>
-        id
-        <input type="text" id = 'id'>
-    </div>
-    <div>
-        pw
-        <input type="password" id = 'pw'>
-    </div>
-    <button id = 'login'>login</button>
-    <button id = 'join'>join</button>
-</div>
-<script>
-var LOGIN_FUNC = {};
-(function(login_func){
-    var props = {
-        
-    };
+<section class="log_sec">
+    <div class="login_box">
+        <div class="topcopy">
+            <div class="login_logo">
+                <img src="{% static 'image/logo.svg' %}" alt="logo">
+            </div>
+        </div>
+        <div class="login_main">
+            <div class="sign click_e">
+                <div class="box">
+                    <input type="text" placeholder="아이디" class="id_put" tabindex="1">
+                </div>
+            </div>
+            <div class="pass click_e">
+                <div class="box">
+                    <input type="password" placeholder="비밀번호" class="pass_put" tabindex="2">
+                </div>
+            </div>
+            <ul class="find_tab">
+                <li class="maintain">
+                    <label class="log_tain">
+                        <input type="checkbox" class="checkbox">
+                        <div class="check_tit">로그인 유지하기</div>
+                    </label>
+                </li>
+                <li class="findbar">
+                    <a href="#none">아이디 찾기</a>
+                    <a href="#none">비밀번호찾기</a>
+                </li>
+            </ul>
+            <button class="log_btn" id='login'>login</button>
 
-    $.extend(props, {
-        event : function(){
-            document.getElementById('login').addEventListener('click',
-                function(){
+            <div class="user_new">
+                <ul class="user_joinus">
+                    <li class="newroad">
+                        <span>
+                            회원이 아니신가요?
+                        </span>
+                    </li>
+                    <li class="new_join">
+                        <a class="goto_page" id='goJoin'>회원가입</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    var LOGIN_FUNC = {};
+    (function (login_func) {
+        var props = {
+
+        };
+
+        $.extend(props, {
+            event: function () {
+                $('#login').click(function () {
                     var id = $('#id').val()
-                    var pw = $('#pw').val()       
-                    if(COMMON.isEmpty(id)){
+                    var pw = $('#pw').val()
+                    if (COMMON.isEmpty(id)) {
                         alert('아이디를 입력해주세요')
                         return
                     }
 
-                    if(COMMON.isEmpty(pw)){
+                    if (COMMON.isEmpty(pw)) {
                         alert('비밀번호를 입력해주세요')
                         return
                     }
 
                     $.ajax({
-                        type:'POST',
-                        url : 'getLogin',
-                        data : {'id':id,'pw':pw,'type':'normal'},
-                        dataType : 'json',
-                        success : function(res){
+                        type: 'POST',
+                        url: 'getLogin',
+                        data: { 'id': id, 'pw': pw, 'type': 'normal' },
+                        dataType: 'json',
+                        success: function (res) {
                             console.log(res)
                         }
                     })
-                }
-            )
+                });
 
-            document.getElementById('join').addEventListener('click', 
-            function(){
-                location.href = 'http://127.0.0.1:8000/join/'
-            })
-        },
-    });
+                $('#goJoin').click(function () {
+                    location.href = 'http://127.0.0.1:8000/join/'
+                });
+            },
+        });
 
-    $.extend(login_func,{
-        init : function(){
-            props.event()
-        }
-    });
+        $.extend(login_func, {
+            init: function () {
+                props.event()
+            }
+        });
 
 
-    return login_func;
-}(LOGIN_FUNC));
+        return login_func;
+    }(LOGIN_FUNC));
 
-$(document).ready(function(){
-    LOGIN_FUNC.init()
-})
+    $(document).ready(function () {
+        LOGIN_FUNC.init()
+    })
 </script>
 {% endblock %}

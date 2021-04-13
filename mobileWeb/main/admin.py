@@ -7,3 +7,10 @@ admin.site.register(UserInfo)
 admin.site.register(ProductInfo)
 admin.site.register(CleanImage)
 admin.site.register(CleanInfo)
+admin.site.register(ProductImage)
+
+class productAdmin(admin.ModelAdmin):
+    list_display = ['']
+
+class userAdmin(admin.ModelAdmin):
+    list_display = ['']

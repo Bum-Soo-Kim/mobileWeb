@@ -20,5 +20,6 @@ from main import urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include(urls.urlpatterns))
+    path('',include(urls.urlpatterns)),
+    path('adcus/',include(urls.adminurlpath))
 ]

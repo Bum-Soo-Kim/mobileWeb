@@ -6,7 +6,6 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.core.validators import MaxValueValidator, MinValueValidator
 
-
 # Create your models here.
 class TimeModel(models.Model):
     reg_date = models.DateTimeField(auto_now_add=True, verbose_name='등록일')
@@ -27,6 +26,9 @@ class UserInfo(TimeModel):
     def __int__(self):
         return self.id
 
+    def __str__(self):
+        return f"{self.type}"
+
     class Meta:
         db_table = 'auth_user_info'
         verbose_name = '유저 추가정보'
@@ -36,7 +38,7 @@ class UserInfo(TimeModel):
 class ProductInfo(TimeModel):
     name = models.CharField(max_length=30, verbose_name='상품 이름')
     price = models.CharField(max_length=30, verbose_name='가격')
-    main_image = models.CharField(max_length=255, verbose_name='메인 이미지')
+    main_image = models.FileField(max_length=255, verbose_name='메인 이미지')
     video_url = models.CharField(max_length=255, verbose_name='영상 url')
     text = models.TextField(verbose_name='상품 설명')
     isSell = models.BooleanField(verbose_name='판매 여부')
@@ -53,6 +55,7 @@ class ProductInfo(TimeModel):
 class ProductImage(TimeModel):
     product = models.ForeignKey('ProductInfo', on_delete=models.CASCADE)
     image = models.CharField(max_length=255, verbose_name='이미지 url')
+    photo = models.FileField(null=True)
 
     def __int__(self):
         return self.id
@@ -81,7 +84,7 @@ class UseInfo(TimeModel):
 #세척정보 이미지
 class CleanImage(TimeModel):
     clean = models.ForeignKey('UseInfo', on_delete=models.CASCADE)
-    image = models.CharField(max_length=255, verbose_name='이미지 url')
+    image = models.FileField(null=True, blank = True, upload_to='test/cleanimage/')
 
     def __int__(self):
         return self.id
@@ -103,7 +106,6 @@ class CleanInfo(TimeModel):
     clean_type = models.CharField(max_length=15, choices=CLEAN_TYPE)
     isVideo = models.BooleanField(verbose_name='비디오 여부',null=True)
     isAddiServ = models.BooleanField(verbose_name='살균,탈취',null=True)
-
     class Meta : 
         db_table = 'clean_info'
         verbose_name = '세척 신청'

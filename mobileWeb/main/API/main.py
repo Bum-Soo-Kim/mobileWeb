@@ -5,11 +5,10 @@ from django.http import HttpResponse
 import json
 
 def renderPage(request):
-    return render(request, 'main.html')
+    return render(request, 'index.html')
 
 def getData(request):
     result = {'code':'','msg':'','data':[]}
-    
 
     try : 
         1

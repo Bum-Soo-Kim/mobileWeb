@@ -1,6 +1,7 @@
 from django.urls import path
 
 from .API import main, login, join
+from .API.admin import main as admin_main, user
 
 urlpatterns = [
     #메인페이지
@@ -16,4 +17,9 @@ urlpatterns = [
     path('join/getJoin',join.getJoin),
     path('join/kakaoJoin',join.kakaoLogin),
     path('join/getCertificate',join.getCertificate)
+]
+
+adminurlpath =[
+    path('',admin_main.renderPage),
+    path('user/',user.renderPage),
 ]

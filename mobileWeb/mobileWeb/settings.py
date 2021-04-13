@@ -127,3 +127,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '/static/assets/'
+DATA_UPLOAD_MAX_MEMORY_SIZE = 1024000000 # value in bytes 1GB here
+FILE_UPLOAD_MAX_MEMORY_SIZE = 1024000000
+
+#AWS
+AWS_S3_REGION_NAME = 'ap-northeast-2'
+AWS_STORAGE_BUCKET_NAME = 'shoepro'
+AWS_ACCESS_KEY_ID = ''
+AWS_SECRET_ACCESS_KEY = ''
