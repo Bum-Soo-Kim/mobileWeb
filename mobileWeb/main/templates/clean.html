@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+<div class="content">
+    <div class="title_cont">
+        <h2>clean service</h2>
+        <hr class="underline">
+    </div>
+    <!-- cont -->
+    <div class="cont">
+        <div class="imgwrap">
+            <img src="http://placehold.it/700x500" alt="cleanimage">
+        </div>
+        <div class="clean_payment">
+            <h3 class="opt_title">clean option</h3>
+            <div class="option_tab">
+                <div class="course opt_box">
+                    <h4 class="h4margin">코스선택</h4>
+                    <select id="course">
+                        <option>코스를선택하세요</option>
+                        <option value="basic">basic(15,000원)</option>
+                        <option value="premium">premium(+10,000원)</option>
+                    </select>
+                </div>
+                <div class="plus_opt opt_box">
+                    <h4 class="h4margin">옵션</h4>
+                    <select name="plusopt" id="plusopt">
+                        <option>옵션을선택하세요</option>
+                        <option value="no_opt">없음</option>
+                        <option value="video" id="video">동영상(+5,000)</option>
+                        <option value="ster">살균 탈취(+5,000)</option>
+                        <option value="all_opt">모두 선택(+10,000)</option>
+                    </select>
+                </div>
+
+
+                <div class="amount opt_box">
+                    <h4 class="h4margin">수량</h4>
+                    <ul class="add_remove">
+                        <li class="remove">
+                            <button class="remove_btn" id="remove">-</button>
+                        </li>
+                        <li class="num_wrap">
+                            <div class="num" id="number">
+                                0
+                            </div>
+                        </li>
+                        <li class="add">
+                            <button class="add_btn" id="add">+</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="servc_total">
+                <span class="price">0</span>원
+            </div>
+            <div class="btn_wrap">
+                <div>
+                    <button class="scart_btn">
+                        장바구니
+                    </button>
+                </div>
+                <div>
+                    <button class="spay_btn">
+                        바로결제
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <hr class="cutline">
+        <div class="info_tab">
+            <h3>service info</h3>
+
+
+            <div class="img_article">
+                <div class="info_img">
+                    <img src="http://placehold.it/700x500" alt="cleanimage">
+                </div>
+                <div class="explan_wrap">
+                    <h4 class="explan_title">1. lorem ipsum</h4>
+                    <p class="explan">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus sint voluptatem
+                        voluptatum optio
+                    </p>
+                </div>
+            </div>
+
+            <div class="img_article">
+                <div class="info_img">
+                    <img src="http://placehold.it/700x500" alt="cleanimage">
+                </div>
+                <div class="explan_wrap">
+                    <h4 class="explan_title">2. lorem ipsum</h4>
+                    <p class="explan">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus sint voluptatem
+                        voluptatum optio
+                    </p>
+                </div>
+            </div>
+
+            <div class="img_article">
+                <div class="info_img">
+                    <img src="http://placehold.it/700x500" alt="cleanimage">
+                </div>
+                <div class="explan_wrap">
+                    <h4 class="explan_title">3. lorem ipsum</h4>
+                    <p class="explan">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus sint voluptatem
+                        voluptatum optio
+                    </p>
+                </div>
+            </div>
+
+            <div class="img_article">
+                <div class="info_img">
+                    <img src="http://placehold.it/700x500" alt="cleanimage">
+                </div>
+                <div class="explan_wrap">
+                    <h4 class="explan_title">4. lorem ipsum</h4>
+                    <p class="explan">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus sint voluptatem
+                        voluptatum optio
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

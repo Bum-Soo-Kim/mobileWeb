@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
 <html>
-
 <head>
     <link rel='stylesheet' href="{% static 'css/style.css' %}">
     
@@ -11,6 +10,7 @@
     <script src="{% static 'js/prefixfree.min.js' %}"></script>
     <script src="https://kit.fontawesome.com/1aa42dec2e.js" crossorigin="anonymous"></script>
     <script src="{% static 'js/jqueury_shoepro.js' %}"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script>
         $.ajax({
             type: 'POST',
@@ -36,7 +36,7 @@
                     </a>
                 </li>
                 <li class="logo">
-                    <a href="#none">
+                    <a href="#none" id = 'main'>
                         <img src="{% static 'image/logo.svg' %}" alt="logo">
                     </a>
                 </li>
@@ -61,7 +61,7 @@
                     <ul class="checkbar">
                         <li>
                             <div class="check_btn">
-                                <a href="#none">
+                                <a href="#none" id = 'login'>
                                     <div class="userimg">
                                         <img src="{% static 'image/user_w.svg' %}" alt="login">
                                     </div>
@@ -72,7 +72,7 @@
                 
                         <li>
                             <div class="check_btn">
-                                <a href="#none">
+                                <a href="#none" id ='join'>
                                     <div class="userimg2">
                                         <img src="{% static 'image/usernew_w.svg' %}" alt="newaccount">
                                     </div>
@@ -109,17 +109,17 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#none">
+                            <a href="#none" id ='howto'>
                                 how to
                             </a>
                         </li>
                         <li>
-                            <a href="#none">
+                            <a href="#none" id = 'offline'>
                                 offline store
                             </a>
                         </li>
                         <li>
-                            <a href="#none">
+                            <a href="#none" id = 'about'>
                                 about
                             </a>
                         </li>
@@ -159,5 +159,45 @@
 </body>
 </html>
 <script>
-    
+    var BASE_FUNC = {};
+    (function (base_func){
+        var props = {
+
+        };
+
+        $.extend(props, {
+            event : function(){
+                $("#main").click(function(){
+                    location.href = 'http://127.0.0.1:8000/main/'
+                })
+
+                $('#login').click(function(){
+                    location.href = 'http://127.0.0.1:8000/login/'
+                });
+
+                $('#join').click(function(){
+                    location.href = 'http://127.0.0.1:8000/join/'
+                })
+
+                $('#about').click(function(){
+                    location.href = 'http://127.0.0.1:8000/about/'
+                })
+
+                $('#howto').click(function(){
+                    location.href = 'http://127.0.0.1:8000/howto/'
+                })
+            }
+        });
+
+        $.extend(base_func,{
+            init : function(){
+                props.event();
+            }
+        })
+        return base_func;
+    }(BASE_FUNC));
+
+    $(document).ready(function(){
+        BASE_FUNC.init();
+    })
 </script>

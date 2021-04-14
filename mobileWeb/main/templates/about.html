@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+<section class="about about_margin">
+    <div class="article_wrap">
+        <div class="img_wrap">
+            <img src="http://placehold.it/768x500" alt="about img">
+        </div>
+        <article class="about_desc">
+            <h2 class="a_tit">about</h2>
+            <p class="a_article">shoepro는 스니커즈를 사랑하는 분들의 마음을 이해하여 고객님들이 사랑하시는 스니커즈를 최상의 컨디션으로 오랫동안 신으시고 보관할 수 있도록 언제나 그 방법에대해 고민하고 연구하는 프로가 되겠습니다!</p>
+            <span class="a_from">-스니커즈 전문가 shoepro-</span>
+        </article>
+    </div>
+</section>
+<section class="brand about_margin">
+    <div class="brand_wrap">
+        <div class="brand_icon">
+            <img src="{% static 'image/logo.svg' %}" alt="logo">
+        </div>
+        <article class="brand_desc">
+            <h2 class="b_tit">brand identity</h2>
+            <hr class="underline">
+            <p class="b_article">
+                SHOEPRO의 로고는 프리미엄 브러쉬를 형상화한 것으로 고객님들의 슈즈를 항상 깨끗하고 최상의 컨디션으로 유지해드리고 싶은 저희 임직원들의 마음을 담고 있습니다.
+            </p>
+        </article>
+    </div>
+</section>
+{% endblock %}

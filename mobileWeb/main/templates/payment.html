@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+<div class="payge_title">
+    <div class="page_back">
+        <a href="#none">
+            <img src="{% static 'image/agl.svg' %}" alt="back">
+        </a>
+    </div>
+    <h2 class="payge_tit">주문하기</h2>
+</div>
+<div class="content">
+    <div class="item_info">
+        <h3 class="info_tit">주문상품 정보</h3>
+        <div class="pickitem_wrap">
+            <div class="pickitem_img">
+                <img src="http://placehold.it/500x500" alt="item">
+            </div>
+            <div class="pickitem_desc">
+                <span class="pickitem_tit">
+                    lorem ipsum
+                </span>
+                <span class="quantity">
+                    수량: 1개
+                </span>
+                <span class="price">
+                    10,000원
+                </span>
+            </div>
+            <div class="remove_selitem">
+                <img src="{% static 'image/del.svg' %}" alt="remove">
+            </div>
+        </div>
+        <div class="pickitem_wrap">
+            <div class="pickitem_img">
+                <img src="http://placehold.it/500x500" alt="item">
+            </div>
+            <div class="pickitem_desc">
+                <span class="pickitem_tit">
+                    lorem ipsum
+                </span>
+                <span class="quantity">
+                    수량: 1개
+                </span>
+                <span class="price">
+                    10,000원
+                </span>
+            </div>
+            <div class="remove_selitem">
+                <img src="{% static 'image/del.svg' %}" alt="remove">
+            </div>
+        </div>
+        <div class="total">
+            <p>총 결제 금액</p>
+            <p>
+                <span class="total_price">20,000</span>원
+            </p>
+        </div>
+    </div>
+</div>
+<div class="delivery">
+    <h3 class="deli_info">배송지 정보</h3>
+    <div class="payge_wrapper click_e">
+        <p>받으시는 분</p>
+        <div class="box">
+            <input type="text" maxlength="20" placeholder="이름">
+        </div>
+    </div>
+    <div class="payge_wrapper click_e">
+        <p>연락처</p>
+        <div class="box">
+            <input type="text" maxlength="20" placeholder="-없이 번호입력">
+        </div>
+    </div>
+    <div class="payge_wrapper click_e">
+        <p>배송지 주소</p>
+        <div class="address1">
+            <div class="box">
+                <input type="text">
+                <button class="address_btn" id='searchAdd'>검색</button>
+            </div>
+        </div>
+    </div>
+    <div class="payment_wrapper click_e">
+        <div class="address2">
+            <div class="box">
+                <input type="text" placeholder="나머지 주소 입력">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="payge_tab">
+    <h3 class="payge_info">결제 정보</h3>
+    <div class="pay">
+        <div class="card">
+            <a href="#none">
+                <img src="{% static 'image/card.svg' %}" alt="card">
+                <span>신용카드</span>
+            </a>
+        </div>
+        <div class="phone">
+            <a href="#none">
+                <img src="{% static 'image/phone.svg' %}" alt="phone">
+                <span>휴대전화</span>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="pay_btn">
+    <button>결제하기</button>
+</div>
+<script>
+</script>
+{% endblock %}

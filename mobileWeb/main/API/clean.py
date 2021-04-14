@@ -7,7 +7,7 @@ from main.models import CleanInfo
 import json, requests
 
 def renderPage(request):
-    return render(request)
+    return render(request, 'clean.html')
 
 def getData(request):
     result = {'code':'','msg':'','data':[]}
