@@ -69,14 +69,14 @@
     <div class="payge_wrapper click_e">
         <p>연락처</p>
         <div class="box">
-            <input type="text" maxlength="20" placeholder="-없이 번호입력">
+            <input type="tel" maxlength="20" placeholder="-없이 번호입력">
         </div>
     </div>
     <div class="payge_wrapper click_e">
         <p>배송지 주소</p>
         <div class="address1">
             <div class="box">
-                <input type="text">
+                <input type="text" id = 'mainAddr'>
                 <button class="address_btn" id='searchAdd'>검색</button>
             </div>
         </div>
@@ -84,7 +84,7 @@
     <div class="payment_wrapper click_e">
         <div class="address2">
             <div class="box">
-                <input type="text" placeholder="나머지 주소 입력">
+                <input type="text" placeholder="나머지 주소 입력" id ='subAddr'>
             </div>
         </div>
     </div>
@@ -110,5 +110,53 @@
     <button>결제하기</button>
 </div>
 <script>
+    var PAY_FUNC = {};
+    (function(pay_func){
+        var props = {
+            areacode : '',
+            postcode : '',
+        };
+
+        $.extend(props,{
+            getAddress : function(){
+                new daum.Postcode({
+                    oncomplete:function(data){
+                        var roadAddr = data.roadAddress;
+                        var extraAddr = '';
+                        if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                            extraAddr += data.bname;
+                        }
+
+                        if(data.bname !== '' && data.apartment === 'Y'){
+                            extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                        }
+
+                        if(extraAddr !== ''){
+                            extraAddr = ' (' + extraAddr + ')';
+                        }
+                        document.getElementById('mainAddr').value = roadAddr
+                        props.areacode = data.sigunguCode
+                    }
+                }).open()
+            },
+            event : function(){
+                $('#searchAdd').click(function(){
+                    props.getAddress();
+                })
+            },
+        });
+
+        $.extend(pay_func,{
+            init: function(){
+                props.event()
+            }
+        });
+
+        return pay_func;
+    }(PAY_FUNC));
+
+    $(document).ready(function(){
+        PAY_FUNC.init();
+    })
 </script>
 {% endblock %}

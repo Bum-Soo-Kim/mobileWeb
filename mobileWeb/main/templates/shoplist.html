@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+<div class="title_cont">
+    <h2>shop</h2>
+    <hr class="underline">
+</div>
+<div class="content">
+    <ul class="items_wrap">
+        <li class="item">
+            <a href="#none">
+                <div class="imgwrap">
+                    <img src="http://placehold.it/700x500" alt="item">
+                </div>
+                <div class="shop_desc">
+                    <h3>lorem ipsum</h3>
+                    <p> <span>15,000</span>원</p>
+                </div>
+            </a>
+        </li>
+        <li class="item">
+            <a href="#none">
+                <div class="imgwrap">
+                    <img src="http://placehold.it/700x500" alt="item">
+                </div>
+                <div class="shop_desc">
+                    <h3>lorem ipsum</h3>
+                    <p> <span>15,000</span>원</p>
+                </div>
+            </a>
+        </li>
+        <li class="item">
+            <a href="#none">
+                <div class="imgwrap">
+                    <img src="http://placehold.it/700x500" alt="item">
+                </div>
+                <div class="shop_desc">
+                    <h3>lorem ipsum</h3>
+                    <p> <span>15,000</span>원</p>
+                </div>
+            </a>
+        </li>
+        <li class="item">
+            <a href="#none">
+                <div class="imgwrap">
+                    <img src="http://placehold.it/700x500" alt="item">
+                </div>
+                <div class="shop_desc">
+                    <h3>lorem ipsum</h3>
+                    <p> <span>15,000</span>원</p>
+                </div>
+            </a>
+        </li>
+        <li class="item">
+            <a href="#none">
+                <div class="imgwrap">
+                    <img src="http://placehold.it/700x500" alt="item">
+                </div>
+                <div class="shop_desc">
+                    <h3>lorem ipsum</h3>
+                    <p> <span>15,000</span>원</p>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
+<script>
+    var LIST_FUNC = {};
+    (function(list_func){
+        var props = {
+            
+        };
+        $.extend(props,{
+            event : function(){
+
+            },
+            getData:function(){
+                $.ajax({
+                    type : 'POST',
+                    data : {},
+                    url : 'getListData',
+                    success : function(res){
+                        if(res.code == 1){
+                            for(let i = 0; i<res.length;i++){
+
+                            }
+                        }else{
+                            alert(res.msg)
+                        }
+                    }
+                })
+            },
+        })
+        $.extend(list_func,{
+            init : function(){
+                props.event();
+            }
+        })
+        return list_func;
+    }(LIST_FUNC));
+
+    $(document).ready(function(){
+        LIST_FUNC.init();
+    })
+</script>
+{% endblock %}

@@ -30,5 +30,17 @@ var COMMON = COMMON || {};
         deleteCookie : function(key){
             document.cookie = key + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
         },
+        //비밀번호 정규식
+        checkPW : function(val){
+            if(val.length < 8 || val.length > 20){
+                alert('비밀번호는 8~20자리 이내로 입력해 주세요.')
+                return false
+            }else if(val.search(/\s/) != -1){
+                alert('비밀번호에 공백이 포함되어 있습니다.')
+                return false
+            }else{
+                return true
+            }
+        }
     })
 }(COMMON, $))

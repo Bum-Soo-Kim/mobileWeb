@@ -27,6 +27,8 @@ def getLogin(request):
             login(request, user)
             result['code'] = 1
 
+        print(1)
+
     except Exception as e:
         result['code'] = e
         result['msg'] = e

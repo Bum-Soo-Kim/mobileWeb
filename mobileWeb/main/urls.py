@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .API import main, login, join, howto,clean, wrap, payment, about,cart
+from .API import main, login, join, howto,clean, wrap, payment, about,cart, shoplist, shopinfo
 from .API.admin import main as admin_main, user
 
 urlpatterns = [
@@ -17,6 +17,7 @@ urlpatterns = [
     path('join/getJoin',join.getJoin),
     path('join/kakaoJoin',join.kakaoLogin),
     path('join/getCertificate',join.getCertificate),
+    path('join/checkID',join.checkID),
 
     #howto
     path('howto/',howto.renderPage),
@@ -35,6 +36,12 @@ urlpatterns = [
 
     #cart
     path('cart/',cart.renderPage),
+
+    #shotlist
+    path('shoplist/',shoplist.renderPage),
+
+    #shopinfo
+    path('shopinfo/',shopinfo.renderPage),
 ]
 
 adminurlpath =[

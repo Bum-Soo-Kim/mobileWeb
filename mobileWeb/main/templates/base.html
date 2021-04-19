@@ -3,7 +3,8 @@
 <html>
 <head>
     <link rel='stylesheet' href="{% static 'css/style.css' %}">
-    
+    <link rel = 'icon' href = '{% static "image/favicon.ico" %}'>
+
     <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
     <script src="{% static 'js/common.js' %}"></script>
     <script src="{% static 'js/kakao.min.js' %}"></script>
@@ -185,6 +186,10 @@
 
                 $('#howto').click(function(){
                     location.href = 'http://127.0.0.1:8000/howto/'
+                })
+
+                $('#goback').click(function(){
+                    window.history.back();
                 })
             }
         });

@@ -1,0 +1,209 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+<div class="shopinfo_title">
+    <div class="back">
+        <a href="#none" id = 'goback'>
+            <img src="{% static 'image/agl.svg' %}" alt="back">
+        </a>
+    </div>
+    <h2>상세정보</h2>
+</div>
+<div class="content">
+    <div class="item_title">
+        <h3 id = 'productName'>lorem ipsum</h3>
+    </div>
+    <div class="info_wrapper">
+        <div class="iteminfo_wrap">
+            <img src="http://placehold.it/725x500" alt="item">
+        </div>
+
+        <div class="itemprice_tab">
+            <table>
+                <th class="itemprice">
+                    판매가
+                    <td>
+                        <span>
+                            10,000원
+                        </span>
+                    </td>
+                </th>
+            </table>
+            <table>
+                <th class="item_quantity">
+                    수량
+                    <td>
+                            <ul class="add_remove">
+                                <li class="remove">
+                                    <button class="remove_btn" id="remove">-</button>
+                                </li>
+                                <li class="num_wrap">
+                                    <div class="num" id="number">
+                                        0
+                                    </div>
+                                </li>
+                                <li class="add">
+                                    <button class="add_btn" id="add">+</button>
+                                </li>
+                            </ul>
+                    </td>
+                </th>
+            </table>
+            <div class="itemtotal_wrap">
+                <p>
+                    <span class="itemtotal">
+                        0
+                    </span>
+                    원
+                </p>
+            </div>
+
+            <div class="cpbtn_wrap">
+                <div>
+                    <button class="infocart_btn">
+                        장바구니
+                    </button>
+                </div>
+                <div>
+                    <button class="payment_btn">
+                        바로결제
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="info_bar">
+        <ul class="choice">
+            <li class="g_info on">
+                <span>
+                    상품설명
+                </span>
+            </li>
+            <li class="g_review">
+                <span>
+                    상품후기
+                </span>
+            </li>
+        </ul>
+    </div>
+    <section class="product_info">
+        <div class="product_explan">
+            <div class="inofmargin">
+                <p> &nbsp; </p>
+            </div>
+            <img src="http://placehold.it/768x1000" alt="product_info">
+            <img src="http://placehold.it/768x1000" alt="product_info">
+        </div>
+    </section>
+    <section class="product_review">
+        <div class="review_wrapper">
+            <div class="rebtn_wrap">
+                <button class="review_btn">
+                    리뷰쓰기
+                </button>
+            </div>
+            <ul class="review_wrap">
+                <li class="review_list">
+                    <div class="review_cb">
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum in eaque perspiciatis consequuntur perferendis modi, pariatur harum nobis iure ad doloremque laborum numquam, ipsa sunt suscipit architecto, velit rerum sit.</p>
+                        <span class="id">
+                            작성자
+                        </span>
+                        <span class="date">
+                            날짜
+                        </span>
+                    </div>
+                    <div class="review">
+                        <div class="review_article">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus repellendus quae autem temporibus? Tempora delectus, ut alias voluptatibus deserunt eum corporis quis dolores natus molestias iste asperiores nisi quo veritatis!
+                        </div>
+                    </div>
+                </li>
+                <li class="review_list">
+                    <div class="review_cb">
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum in eaque perspiciatis consequuntur perferendis modi, pariatur harum nobis iure ad doloremque laborum numquam, ipsa sunt suscipit architecto, velit rerum sit.</p>
+                        <span class="id">
+                            작성자
+                        </span>
+                        <span class="date">
+                            날짜
+                        </span>
+                    </div>
+                    <div class="review">
+                        <div class="review_article">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus repellendus quae autem temporibus? Tempora delectus, ut alias voluptatibus deserunt eum corporis quis dolores natus molestias iste asperiores nisi quo veritatis!
+                        </div>
+                    </div>
+                </li>
+                <li class="review_list">
+                    <div class="review_cb">
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum in eaque perspiciatis consequuntur perferendis modi, pariatur harum nobis iure ad doloremque laborum numquam, ipsa sunt suscipit architecto, velit rerum sit.</p>
+                        <span class="id">
+                            작성자
+                        </span>
+                        <span class="date">
+                            날짜
+                        </span>
+                    </div>
+                    <div class="review">
+                        <div class="review_article">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus repellendus quae autem temporibus? Tempora delectus, ut alias voluptatibus deserunt eum corporis quis dolores natus molestias iste asperiores nisi quo veritatis!
+                        </div>
+                    </div>
+                </li>
+                <li class="review_list">
+                    <div class="review_cb">
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum in eaque perspiciatis consequuntur perferendis modi, pariatur harum nobis iure ad doloremque laborum numquam, ipsa sunt suscipit architecto, velit rerum sit.</p>
+                        <span class="id">
+                            작성자
+                        </span>
+                        <span class="date">
+                            날짜
+                        </span>
+                    </div>
+                    <div class="review">
+                        <div class="review_article">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus repellendus quae autem temporibus? Tempora delectus, ut alias voluptatibus deserunt eum corporis quis dolores natus molestias iste asperiores nisi quo veritatis!
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+</div>
+<script>
+var INFO_FUNC = {};
+(function(info_func){
+    var props = {
+        itemid : '',
+    };
+    $.extend(props,{
+        event : function(){
+
+        },
+        getData : function(){
+            $.ajax({
+                type : 'POST',
+                url : 'getInfoData',
+                data : {itemid : props.itemid},
+                success : function(res){
+                    console.log(res)
+                }
+            })
+        },
+    })
+
+    $.extend(info_func,{
+        init:function(){
+            props.event();
+            props.getData();
+        }
+    })
+    return info_func;
+}(INFO_FUNC))
+
+$(document).ready(function(){
+    INFO_FUNC.init();
+})
+</script>
+{% endblock %}

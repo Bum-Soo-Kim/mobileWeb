@@ -108,3 +108,19 @@ def getCertificate(request):
         raise e
 
     return HttpResponse(json.dumps(result))
+
+def checkID(request):
+    result = {'code':'','msg':''}
+
+    try:
+        id = request.POST.get('id')
+        isUser = User.objects.filter(username = id).exists()
+        if isUser:
+            result['code'] = False
+        else:
+            result['code'] = True
+    
+    except Exception as e:
+        raise e
+
+    return HttpResponse(json.dumps(result))
