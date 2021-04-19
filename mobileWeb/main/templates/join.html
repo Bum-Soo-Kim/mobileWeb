@@ -16,7 +16,7 @@
                 
             </h3>
             <div class="box">
-                <input class="join_input" type="text" maxlength="20" tabindex="1">
+                <input class="join_input" type="text" maxlength="20" tabindex="1" id = 'userid'>
                 <button id="overlap">중복확인</button>
             </div>
         </div>
@@ -110,6 +110,7 @@ var JOIN_FUNC = {};
 (function(join_func){
     var props = {
         key : '',
+        isId : '',
     };
 
     $.extend(props, {
@@ -143,6 +144,8 @@ var JOIN_FUNC = {};
                     return
                 }
 
+                COMMON.checkPw(pw);
+
                 $.ajax({
                     type : 'POST',
                     url : 'getJoin',
@@ -175,13 +178,32 @@ var JOIN_FUNC = {};
                             data: { imp_uid: rsp.imp_uid }
                         });
                     }else{
-                        
+
                     }
                 }
             })
+            $('#overlap').click(function(){
+                var user = $('#userid').val()
+
+                $.ajax({
+                    type : 'POST',
+                    url : 'checkID',
+                    dataType:'json',
+                    data : {id : user},
+                    success : function(res){
+                        if(res.code == true){
+                            alert('사용 가능한 아이디입니다.');
+                            props.isId = true
+                        }else{
+                            alert('이미 존재하는 아이디입니다.');
+                            props.isId = false
+                        }
+                    }
+                })
+            })
         }
     });
-
+    
     $.extend(join_func,{
         init : function(){
             props.event()
