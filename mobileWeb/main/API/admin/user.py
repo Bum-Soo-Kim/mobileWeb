@@ -9,3 +9,4 @@ def renderPage(request):
 
 def renderDetail(request):
     return render(request, 'shoeproadmin/user_detail.html')
+

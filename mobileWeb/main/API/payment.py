@@ -15,6 +15,7 @@ def getData(request):
 
     try:
         pid = request.POST.get('product')
+        
 
     except Exception as e:
         raise e

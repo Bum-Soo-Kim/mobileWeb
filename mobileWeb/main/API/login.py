@@ -25,9 +25,7 @@ def getLogin(request):
             result['code'] = 0
             result['msg'] = '아이디 또는 비밀번호를 확인해주세요'
         else:
-            # print(1)
             django_login(request, user)
-            # print(2)
             request.session['user']=id
             result['code'] = 1
 
