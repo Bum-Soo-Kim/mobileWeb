@@ -1,52 +1,57 @@
-{% extends 'base.html' %}
+<!-- {% extends 'base.html' %}
 {% load static %}
-{% block contents %}
+{% block contents %} -->
 <section class="log_sec">
-    <div class="login_box">
-        <div class="topcopy">
-            <div class="login_logo">
-                <img src="{% static 'image/logo.svg' %}" alt="logo">
-            </div>
-        </div>
-        <div class="login_main">
-            <div class="sign click_e">
-                <div class="box">
-                    <input type="text" placeholder="아이디" class="id_put" tabindex="1" id = 'id'>
+    <form>
+        <div class="login_box">
+            <div class="topcopy">
+                <div class="login_logo">
+                    <img src="{% static 'image/logo.svg' %}" alt="logo">
                 </div>
             </div>
-            <div class="pass click_e">
-                <div class="box">
-                    <input type="password" placeholder="비밀번호" class="pass_put" tabindex="2" id = 'pw'>
+            <div class="login_main">
+                <div class="sign click_e">
+                    <div class="box">
+                        <input type="text" placeholder="아이디" class="id_put" tabindex="1" id='id'>
+                    </div>
                 </div>
-            </div>
-            <ul class="find_tab">
-                <li class="maintain">
-                    <label class="log_tain">
-                        <input type="checkbox" class="checkbox">
-                        <div class="check_tit">로그인 유지하기</div>
-                    </label>
-                </li>
-                <li class="findbar">
-                    <a href="#none">아이디 찾기</a>
-                    <a href="#none">비밀번호찾기</a>
-                </li>
-            </ul>
-            <button class="log_btn" id='login'>login</button>
-
-            <div class="user_new">
-                <ul class="user_joinus">
-                    <li class="newroad">
-                        <span>
-                            회원이 아니신가요?
-                        </span>
+                <div class="pass click_e">
+                    <div class="box">
+                        <input type="password" placeholder="비밀번호" class="pass_put" tabindex="2" id='pw'>
+                    </div>
+                </div>
+                <ul class="find_tab">
+                    <li class="maintain">
+                        <label class="log_tain">
+                            <input type="checkbox" class="checkbox">
+                            <div class="check_tit">로그인 유지하기</div>
+                        </label>
                     </li>
-                    <li class="new_join">
-                        <a class="goto_page" id='goJoin'>회원가입</a>
+                    <li class="findbar">
+                        <a href="#none">아이디 찾기</a>
+                        <a href="#none">비밀번호찾기</a>
                     </li>
                 </ul>
+                <a id ='login'>
+                    <button class="log_btn" >login</button>
+                </a>
+
+                <div class="user_new">
+                    <ul class="user_joinus">
+                        <li class="newroad">
+                            <span>
+                                회원이 아니신가요?
+                            </span>
+                        </li>
+                        <li class="new_join">
+                            <a class="goto_page" id='goJoin'>회원가입</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
+    </form>
+
 </section>
 
 <script>
@@ -74,9 +79,12 @@
                     $.ajax({
                         type: 'POST',
                         url: 'getLogin',
-                        data: { 'id': id, 'pw': pw, 'type': 'normal' },
+                        data: { 'id': id, 'pw': pw, 'type': 'normal',csrfmiddlewaretoken: "{{ csrf_token }}"},
                         dataType: 'json',
                         success: function (res) {
+                            console.log(res)
+                        },
+                        error : function(res){
                             console.log(res)
                         }
                     })
@@ -102,4 +110,4 @@
         LOGIN_FUNC.init()
     })
 </script>
-{% endblock %}
+<!-- {% endblock %} -->

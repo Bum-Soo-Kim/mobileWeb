@@ -1,7 +1,7 @@
 from django.urls import path
 
 from .API import main, login, join, howto,clean, wrap, payment, about,cart, shoplist, shopinfo
-from .API.admin import main as admin_main, user
+from .API.admin import main as admin_main, user, product
 
 urlpatterns = [
     #메인페이지
@@ -47,4 +47,5 @@ urlpatterns = [
 adminurlpath =[
     path('',admin_main.renderPage),
     path('user/',user.renderPage),
+    path('product/',product.renderPage)
 ]

@@ -63,13 +63,13 @@
     <div class="payge_wrapper click_e">
         <p>받으시는 분</p>
         <div class="box">
-            <input type="text" maxlength="20" placeholder="이름">
+            <input type="text" maxlength="20" placeholder="이름" id = 'buyerName'>
         </div>
     </div>
     <div class="payge_wrapper click_e">
         <p>연락처</p>
         <div class="box">
-            <input type="tel" maxlength="20" placeholder="-없이 번호입력">
+            <input type="tel" maxlength="20" placeholder="-없이 번호입력" id = 'telNumber'>
         </div>
     </div>
     <div class="payge_wrapper click_e">
@@ -107,7 +107,7 @@
     </div>
 </div>
 <div class="pay_btn">
-    <button>결제하기</button>
+    <button id='payment'>결제하기</button>
 </div>
 <script>
     var PAY_FUNC = {};
@@ -121,6 +121,7 @@
             getAddress : function(){
                 new daum.Postcode({
                     oncomplete:function(data){
+                        console.log(data)
                         var roadAddr = data.roadAddress;
                         var extraAddr = '';
                         if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
@@ -135,13 +136,44 @@
                             extraAddr = ' (' + extraAddr + ')';
                         }
                         document.getElementById('mainAddr').value = roadAddr
-                        props.areacode = data.sigunguCode
+                        props.areacode = data.sigunguCode;
+                        props.postcode = data.zonecode;
                     }
                 }).open()
+            },
+            getPayment:function(){
+                var IMP = window.IMP;
+                var buyerName = $('#buyerName').val()
+                var buyerAddr = $('#mainAddr').val() + ' ' + $('#subAddr').val();
+                var buyerTel = $('#telNumber').val();
+                var buyerPost = props.postcode;
+                console.log(IMP)
+
+                IMP.request_pay({
+                    pg : 'html5_inicis',
+                    pay_method : 'card',
+                    merchant_uid : 'merchant_' + new Date().getTime(),
+                    name : '주문명:결제테스트',
+                    amount : 14000,
+                    buyer_email : 'iamport@siot.do',
+                    buyer_name : '구매자이름',
+                    buyer_tel : '010-1234-5678',
+                    buyer_addr : '서울특별시 강남구 삼성동',
+                    buyer_postcode : '123-456'
+                }), function(rsp){
+                    if(rsp.success){
+
+                    }else{
+                        console.log(rsp.message)
+                    }
+                }
             },
             event : function(){
                 $('#searchAdd').click(function(){
                     props.getAddress();
+                })
+                $('#payment').click(function(){
+                    props.getPayment();
                 })
             },
         });
@@ -157,6 +189,7 @@
 
     $(document).ready(function(){
         PAY_FUNC.init();
+        IMP.init('import');
     })
 </script>
 {% endblock %}

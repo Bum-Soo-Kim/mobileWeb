@@ -1,12 +1,13 @@
 # -*- coding : utf-8 -*-
 from __future__ import unicode_literals
+from datetime import datetime
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
 from main.models import UserInfo, SocialAccount
 from .common.kakao import KAKAO
-import json, requests
+import json, requests, datetime
 
 def renderPage(request):
     return render(request, 'join.html')
@@ -60,7 +61,11 @@ def getJoin(request):
         id = req.get('id')
         pw = req.get('pw')
         name = req.get('name')
-        type = req.get('type')
+        loginType = req.get('type')
+        phone = req.get('phone')
+        birthday = datetime.datetime.strptime(req.get('birthday'),'%Y-%m-%d')
+
+
         if User.objects.filter(username = id).exists():
             result['code'] = 0
             result['msg'] = '이미 존재하는 아이디 입니다'
@@ -72,7 +77,9 @@ def getJoin(request):
             )
             UserInfo.objects.create(
                 user = userinfo,
-                type = type,
+                type = loginType,
+                phone = phone,
+                birthday = birthday,
             ).save()           
             result['code'] = 1
             result['msg'] ='회원가입이 완료되었습니다'
