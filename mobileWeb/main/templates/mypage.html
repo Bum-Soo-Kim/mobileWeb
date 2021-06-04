@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+<section>
+    <div class="cont_title">
+        <h3 class="cont_tit">마이페이지</h3>
+    </div>
+    <div class="mypage_profile">
+        <p class="nickname">
+            lorem
+        </p>
+        <div class="quickbar">
+            <div class="quick_change">
+                <a href="#none">
+                    정보변경
+                    <div class="quickimg_wrap">
+                        <img src="../img/user-edit.svg" alt="정보수정" class="user_edit">
+                    </div>
+                </a>
+            </div>
+            <div class="quick_change">
+                <a href="#none">
+                    내 리뷰
+                    <div class="quickimg_wrap">
+                        <img src="../img/pen.svg" alt="내 리뷰" class="myreview">
+                    </div>
+                    </a>
+            </div>
+            <div class="quick_change">
+                <a href="#none">
+                    교환/반품
+                    <div class="quickimg_wrap">
+                        <img src="../img/refund.svg" alt="교환및반품" class="mycenter">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="mypage_wrap">
+        <div class="mp_list m_l">
+            <a href="#none" class="a_carea">
+                <div class="user_carea">
+                    <span class="mp_listtit">
+                        배송지관리
+                    </span>
+                    <img src="../img/truck_s.svg" alt="배송지관리" class="info_img">
+                </div>
+            </a>
+        </div> 
+        <div class="mp_list m_r">
+            <div class="slide">
+                <div class="user_carea">
+                    <span class="mp_listtit">
+                        회원정보관리
+                    </span>
+                    <img src="../img/idcard_s.svg" alt="회원정보관리" class="info_img">
+                </div>
+                <ul class="userinfo_sub">
+                    <li>
+                        <a href="#none">
+                            회원정보변경
+                        </a>
+                    </li>
+                    <li class="call_bg">
+                        <a href="#none">
+                            비밀번호변경
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#none">
+                            회원탈퇴
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="mp_list m_l">
+            <a href="#none" class="a_carea">
+                <div class="user_carea">
+                    <span class="mp_listtit">
+                        리뷰관리
+                    </span>
+                    <img src="../img/star_s.svg" alt="리뷰관리" class="info_img">
+                </div>
+            </a>
+        </div>
+        <div class="mp_list m_l">
+            <a href="#none" class="a_carea">
+                <div class="user_carea">
+                    <span class="mp_listtit">
+                        고객센터
+                    </span>
+                    <img src="../img/headset.svg" alt="고객센터" class="info_img">
+                </div>
+            </a>
+        </div>
+    </div>
+    <!-- passwordmodal -->
+    <div class="pass_bg modalbackground">
+        <div class="og_pass click_e">
+            <div class="backimg">
+                <img src="../img/logo.svg" alt="">
+            </div>
+            <div class="wrapjj">
+                <label class="p_auth">비밀번호확인</label>
+                <div class="call_back">
+                    <img src="../img/del.svg" alt="뒤로가기">
+                </div>
+                <div class="box white">
+                    <input type="password" class="join_input">
+                </div>
+                <div class="pass_btnwrap">
+                    <button class="pass_btn medium_btn">확인</button>
+                    <!-- 확인버튼누른면 비밀번호찾기페이지로이동 -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- e-passwordmodal -->
+</section>
+{% endblock %}

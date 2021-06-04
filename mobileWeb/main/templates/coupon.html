@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+<div class="backpage_title">
+    <div class="page_back">
+        <a href="#none">
+            <img src="{% static 'image/agl.svg' %}" alt="back">
+        </a>
+    </div>
+    <h2 class="backpage_tit">쿠폰함</h2>
+</div>
+<div class="cp_section">
+    <div class="my_cp">
+        <div class="my_cp-tit">
+            <p class="info_cp">
+                보유쿠폰
+            </p>
+            <p class="notice_info">
+                <span class="accent">
+                    *
+                </span>
+                쿠폰 기간이 만료되면 자동으로 삭제됩니다
+            </p>
+        </div>
+        <div class="usecp_window-wrap my_coupon">
+            <div class="usecp_window">
+                <div class="usecp_couponwrap">
+                    <div class="coupon_bar">
+                        <span class="use_yn">사용가능</span>
+                    </div>
+                    <div class="coupon_info">
+                        <span class="coupon_price">
+                            10%
+                        </span>
+                        <span class="coupon_title">
+                            신규가입쿠폰
+                        </span>
+                        <span class="coupon_date">
+                            00.00.00 ~ 00.00.00
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="my_cp ">
+        <div class="my_cp-tit">
+            <p class="info_cp">
+                사용한쿠폰
+            </p>
+        </div>
+        <div class="usecp_window-wrap my_coupon">
+            <div class="usecp_window">
+                <div class="usecp_couponwrap">
+                    <div class="coupon_finbar">
+                        <span class="use_ynfin">사용완료</span>
+                    </div>
+                    <div class="coupon_info">
+                        <span class="coupon_price">
+                            5000원
+                        </span>
+                        <span class="coupon_title">
+                            생일기념 축하쿠폰
+                        </span>
+                        <span class="coupon_date">
+                            00.00.00 ~ 00.00.00
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

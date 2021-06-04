@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+<div class="cont_title">
+    <h3 class="cont_tit">배송지관리</h3>
+</div> 
+<section class="mypage_sec1">
+    <h4 class="mypage_subtit">기본배송지<span class="addnew_list">배송지 추가하기</span></h4>
+    <div class="shipping_delivery">
+        <div class="shipping_address">
+            <span class="deli_name">lorem</span>
+            <span class="user_name">lorem</span>
+            <table class="sh_add">
+                <tr class="user_add">
+                    <th class="table_tit">주소</th>
+                    <td class="addr">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, ratione.</td>
+                </tr>
+                <tr class="user_add">
+                    <th class="table_tit">휴대전화</th>
+                    <td class="user_number">01000000000</td>
+                </tr>
+            </table>
+            <div class="sh_btnwrap">
+                <button class="remove_sh st_btn">삭제</button>
+                <button class="modi_sh st_btn">수정</button>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="mypage_sec2">
+    <h4 class="mypage_subtit">최근배송지</h4>
+    <div class="shipping_delivery">
+        <div class="shipping_address">
+            <span class="deli_name">lorem</span>
+            <span class="user_name">lorem</span>
+            <table class="sh_add">
+                <tr class="user_add">
+                    <th class="table_tit">주소</th>
+                    <td class="addr">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, ratione.</td>
+                </tr>
+                <tr class="user_add">
+                    <th class="table_tit">휴대전화</th>
+                    <td class="user_number">01000000000</td>
+                </tr>
+            </table>
+            <div class="sh_btnwrap">
+                <button class="remove_sh st_btn">삭제</button>
+                <button class="modi_sh st_btn">수정</button>
+                <button class="goto_sh st_btn">기본배송지설정</button>
+            </div>
+        </div>
+    </div> 
+</section>
+<!-- 새 배송지추가모달 -->
+<!-- <div class="address_bg">
+    <div class="address_wrap">
+        <div class="callback_wrap">
+            <div class="call_back2">
+                <img src="{% static 'image/del.svg' %}" alt="뒤로가기">
+            </div>
+        </div>
+        <table class="delivery_address">
+            <tr>
+                <th class="deli_h">배송지명</th>
+                <td class="deli_data">
+                    <div class="delibox">
+                        <input type="text" class="deli_input">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th class="deli_h">성명</th>
+                <td class="deli_data">
+                    <div class="delibox">
+                        <input type="text" class="deli_input">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th class="deli_h">주소</th>
+                <td class="deli_data">
+                    <div class="delibox2">
+                        <input type="text" class="find_addinput">
+                        <button class="find_add st_btn" >검색</button>
+                    </div>
+                    
+                    <div class="delibox">
+                        <input type="text" class="deli_input">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th class="deli_h">휴대전화</th>
+                <td>
+                    <div class="delibox">
+                        <input type="text" class="deli_input">
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div class="save_wrap">
+            <div class="save_up">
+                <input type="checkbox" id="savein" class="savein" name="savein">
+                <label for="savein" class="saveput">기본배송지로설정</label>
+            </div>
+            <div class="delibtn_wrap">
+                <button class="save_delibtn lt_btn">배송지 저장</button>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+{% endblock %}

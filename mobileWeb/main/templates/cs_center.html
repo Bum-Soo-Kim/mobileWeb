@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+<div class="cont_title">
+    <h3 class="cont_tit">고객센터</h3>
+</div>
+<div class="cs_infosec">
+    <div class="cs_list">
+        <p class="cs_list-tit">
+            주문/배송/결제/반품 안내
+        </p>
+        <ul class="cs_sublist">
+            <li class="cs_sublist-tit">
+                <span>
+                    주문 및 결제안내
+                </span>
+                <div class="cssub">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, cupiditate? Ullam nemo doloribus itaque reprehenderit ut quasi provident necessitatibus iure eius error voluptatibus fugit molestiae similique nisi, quis aut laborum!
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, cupiditate? Ullam nemo doloribus itaque reprehenderit ut quasi provident necessitatibus iure eius error voluptatibus fugit molestiae similique nisi, quis aut laborum!
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, cupiditate? Ullam nemo doloribus itaque reprehenderit ut quasi provident necessitatibus iure eius error voluptatibus fugit molestiae similique nisi, quis aut laborum!
+                    </p>
+                </div>
+            </li>
+            <li class="cs_sublist-tit">
+                <span>
+                    취소 및 반품안내
+                </span>
+                <div class="cssub">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, cupiditate? Ullam nemo doloribus itaque reprehenderit ut quasi provident necessitatibus iure eius error voluptatibus fugit molestiae similique nisi, quis aut laborum!
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, cupiditate? Ullam nemo doloribus itaque reprehenderit ut quasi provident necessitatibus iure eius error voluptatibus fugit molestiae similique nisi, quis aut laborum!
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, cupiditate? Ullam nemo doloribus itaque reprehenderit ut quasi provident necessitatibus iure eius error voluptatibus fugit molestiae similique nisi, quis aut laborum!
+                    </p>
+                </div>
+            </li>
+            <li class="cs_sublist-tit">
+                <span>
+                    배송관련안내
+                </span>
+                <div class="cssub">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, cupiditate? Ullam nemo doloribus itaque reprehenderit ut quasi provident necessitatibus iure eius error voluptatibus fugit molestiae similique nisi, quis aut laborum!
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, cupiditate? Ullam nemo doloribus itaque reprehenderit ut quasi provident necessitatibus iure eius error voluptatibus fugit molestiae similique nisi, quis aut laborum!
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, cupiditate? Ullam nemo doloribus itaque reprehenderit ut quasi provident necessitatibus iure eius error voluptatibus fugit molestiae similique nisi, quis aut laborum!
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="cs_list">
+        <p class="cs_list-tit">
+            서비스 및 상품관련 안내
+        </p>
+        <ul class="cs_sublist">
+            <li class="cs_sublist-tit">
+                <span>
+                    wrap서비스관련안내
+                </span>
+            </li>
+            <li class="cs_sublist-tit">
+                <span>
+                    clean서비스관련안내
+                </span>
+            </li>
+        </ul>
+    </div>
+    <div class="cs_list">
+        <p class="cs_list-tit">
+           <span>
+               공지사항
+           </span>
+        </p>
+    </div>
+</div>
+<div class="cs_contactsec">
+    <div class="contact_wrap">
+        <div class="cs_contact">
+            <div class="cs_img">
+                <img src="{% static 'image/phone_s.svg' %}" alt="전화문의">
+            </div>
+            <p class="cs_phone contactfont">
+                전화문의
+                <a href="tel:000-000-000">
+                    000-000-000
+                </a>
+            </p>
+        </div>
+        <div class="cs_contact">
+            <div class="cs_img">
+                <img src="{% static 'image/email.svg' %}" alt="이메일문의">
+            </div>
+            <p class="cs_email contactfont">
+                이메일문의
+                <a href="#">
+                abcd1234@lorem.com
+                </a>
+            </p>
+        </div>
+        <div class="cs_contact">
+            <div class="cs_img">
+                <img src="{% static 'image/clock.svg' %}" alt="상담가능시간">
+            </div>
+            <p class="cs_time contactfont">
+                상담가능시간
+                <span>
+                    00:00am~00:00pm
+                </span>
+                <span class="changefont">
+                    월요일 ~ 금요일
+                </span>
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

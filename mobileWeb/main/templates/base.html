@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 {% load static %}
 <html>
-<head>
-    <link rel='stylesheet' href="{% static 'css/style.css' %}">
-    <link rel = 'icon' href = '{% static "image/favicon.ico" %}'>
 
+<head>
+    <!-- Meta -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Meta End -->
+
+    <!-- CSS -->
+    <link rel='stylesheet' href="{% static 'css/style.css' %}">
+    <link rel='icon' href='{% static "image/favicon.ico" %}'>
+    <!-- CSS End-->
+
+    <!-- Javascript Library -->
     <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
     <script src="{% static 'js/common.js' %}"></script>
     <script src="{% static 'js/kakao.min.js' %}"></script>
@@ -13,6 +22,8 @@
     <script src="{% static 'js/jqueury_shoepro.js' %}"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+    <!-- Javascript Library End -->
+
     <!-- <script>
         $.ajax({
             type: 'POST',
@@ -24,36 +35,48 @@
             }
         })
     </script> -->
-    <meta charset="utf-8">
     <title>shoepro</title>
 </head>
+
 <body>
-    <div class="tablet"> 
-    <header>
-        <nav>
-            <ul class="gnb">
-                <li class="utile menu">
-                    <a href="">
-                        <img src="{% static 'image/menu.svg' %}" alt="menu">
-                    </a>
-                </li>
-                <li class="logo">
-                    <a href="#none" id = 'main'>
-                        <img src="{% static 'image/logo.svg' %}" alt="logo">
-                    </a>
-                </li>
-                <li class="utile cart">
-                    <a href="http://127.0.0.1:8000/456456=1234567">
-                        <img src="{% static 'image/cart_r.svg' %}" alt="cart">
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </header>
-    <div class="hiddenbar"></div>
-    {% block contents %}
-    {% endblock %}
-    <div class="menu_bg"></div>
+    <div class="tablet">
+        <header>
+            <nav>
+                <ul class="gnb">
+                    <li class="utile menu">
+                        <a href="#none">
+                            <img src="{% static 'image/menu.svg' %}" alt="menu">
+                        </a>
+                    </li>
+                    <li class="logo">
+                        <a href="#none">
+                            <img src="{% static 'image/logo.svg' %}" alt="logo">
+                        </a>
+                    </li>
+                    <li class="utile utile_icon">
+                        <img src="{% static 'image/utile_icon.svg' %}" alt="유틸메뉴">
+                        <ul class="dropdown">
+                            <li class="ddmenu">
+                                <a href="#none" class="count_pos">
+                                    <img src="{% static 'image/cart_re.svg' %}" alt="장바구니">
+                                    <span class="utile_count">1</span>
+                                </a>
+                            </li>
+                            <li class="ddmenu">
+                                <a href="#none" class="count_pos">
+                                    <img src="{% static 'image/bell_re.svg' %}" alt="내소식">
+                                    <span class="utile_count">1</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <div class="hiddenbar"></div>
+        {% block contents %}
+        {% endblock %}
+        <div class="menu_bg"></div>
         <div class="fix">
             <div class="menu_window">
                 <div class="exit">
@@ -63,7 +86,7 @@
                     <ul class="checkbar">
                         <li>
                             <div class="check_btn">
-                                <a href="#none" id = 'login'>
+                                <a href="#none" id='login'>
                                     <div class="userimg">
                                         <img src="{% static 'image/user_w.svg' %}" alt="login">
                                     </div>
@@ -71,10 +94,10 @@
                                 </a>
                             </div>
                         </li>
-                
+
                         <li>
                             <div class="check_btn">
-                                <a href="#none" id ='join'>
+                                <a href="#none" id='join'>
                                     <div class="userimg2">
                                         <img src="{% static 'image/usernew_w.svg' %}" alt="newaccount">
                                     </div>
@@ -82,7 +105,7 @@
                                 </a>
                             </div>
                         </li>
-                
+
                     </ul>
                 </div>
                 <div class="menu_list">
@@ -92,13 +115,13 @@
                                 shop
                                 <img src="{% static 'image/agl.svg' %}" alt="angle" class="agl">
                             </a>
-                        
-                                <ul class="sub_menu1">
-                                    <li><a href="#none">all</a></li>
-                                    <li><a href="#none">spray</a></li>
-                                    <li><a href="#none">kits</a></li>
-                                    <li><a href="#none">etc</a></li>
-                                </ul>
+
+                            <ul class="sub_menu1">
+                                <li><a href="#none">all</a></li>
+                                <li><a href="#none">spray</a></li>
+                                <li><a href="#none">kits</a></li>
+                                <li><a href="#none">etc</a></li>
+                            </ul>
                         </li>
                         <li>
                             <a href="#none" class="get_sub2">
@@ -111,17 +134,17 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#none" id ='howto'>
+                            <a href="#none" id='howto'>
                                 how to
                             </a>
                         </li>
                         <li>
-                            <a href="#none" id = 'offline'>
+                            <a href="#none" id='offline'>
                                 offline store
                             </a>
                         </li>
                         <li>
-                            <a href="#none" id = 'about'>
+                            <a href="#none" id='about'>
                                 about
                             </a>
                         </li>
@@ -129,81 +152,93 @@
                 </div>
             </div>
         </div>
-    <footer>
-        <div class="footerlist">
-            <ul>
-                <li>address</li>
-                <li>faq's</li>
-                <li>terms & conditions</li>
-                <li>contact us</li>
-            </ul>
-        </div>
-        <div class="footimg">
-            <div class="footerlogo">
-                <img src="{% static 'image/logo.svg' %}" alt="logo">
-            </div>
-            <div class="snsicon">
-                <ul class="sns">
-                    <li>
-                        <img src="{% static 'image/youtube.png' %}" alt="youtube">
-                    </li>
-                    <li>
-                        <img src="{% static 'image/facebook.png' %}" alt="facebook">
-                    </li>
-                    <li>
-                        <img src="{% static 'image/instagram.png' %}" alt="instagram">
-                    </li>
+        <footer>
+            <div class="footerlist">
+                <ul>
+                    <li>address</li>
+                    <li>faq's</li>
+                    <li>terms & conditions</li>
+                    <li>contact us</li>
                 </ul>
             </div>
-        </div>
-    </footer>
+            <div class="footimg">
+                <div class="footer">
+                    <div class="footerlist">
+                        <ul>
+                            <li>address</li>
+                            <li>faq's</li>
+                            <li>terms & conditions</li>
+                            <li>contact us</li>
+                        </ul>
+                    </div>
+                    <div class="footimg">
+                        <div class="footerlogo">
+                            <img src="{% static 'image/logo.svg' %}" alt="logo">
+                        </div>
+                        <div class="snsicon">
+                            <ul class="sns">
+                                <li>
+                                    <img src="{% static 'image/youtube.png' %}" alt="youtube">
+                                </li>
+                                <li>
+                                    <img src="{% static 'image/facebook.png' %}" alt="facebook">
+                                </li>
+                                <li>
+                                    <img src="{% static 'image/instagram.png' %}" alt="instagram">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+        </footer>
     </div>
 </body>
+
 </html>
 <script>
     var BASE_FUNC = {};
-    (function (base_func){
+    (function (base_func) {
         var props = {
 
         };
 
         $.extend(props, {
-            event : function(){
-                $("#main").click(function(){
+            event: function () {
+                $("#main").click(function () {
                     location.href = 'http://127.0.0.1:8000/main/'
                 })
 
-                $('#login').click(function(){
+                $('#login').click(function () {
                     location.href = 'http://127.0.0.1:8000/login/'
                 });
 
-                $('#join').click(function(){
+                $('#join').click(function () {
                     location.href = 'http://127.0.0.1:8000/join/'
                 })
 
-                $('#about').click(function(){
+                $('#about').click(function () {
                     location.href = 'http://127.0.0.1:8000/about/'
                 })
 
-                $('#howto').click(function(){
+                $('#howto').click(function () {
                     location.href = 'http://127.0.0.1:8000/howto/'
                 })
 
-                $('#goback').click(function(){
+                $('#goback').click(function () {
                     window.history.back();
                 })
             }
         });
 
-        $.extend(base_func,{
-            init : function(){
+        $.extend(base_func, {
+            init: function () {
                 props.event();
             }
         })
         return base_func;
     }(BASE_FUNC));
 
-    $(document).ready(function(){
+    $(document).ready(function () {
         BASE_FUNC.init();
     })
 </script>

@@ -152,6 +152,4 @@ class OrderTable(TimeModel):
         ('mem','회원')
     ]
 
-    ordernum = models.IntegerField(max_length=20, verbose_name= '주문번호')
-    
-    
+    ordernum = models.IntegerField(verbose_name= '주문번호')

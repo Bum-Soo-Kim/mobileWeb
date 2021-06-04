@@ -23,7 +23,7 @@
                 <th class="itemprice">
                     판매가
                     <td>
-                        <span>
+                        <span id = price>
                             10,000원
                         </span>
                     </td>
@@ -175,19 +175,21 @@
 var INFO_FUNC = {};
 (function(info_func){
     var props = {
-        itemid : '',
+        itemid : $(location).href,
     };
     $.extend(props,{
         event : function(){
 
         },
         getData : function(){
+            var url = props.itemid
+            var itemid = url.replace('http://127.0.0.1/detail/','').replace('/','')
             $.ajax({
                 type : 'POST',
                 url : 'getInfoData',
-                data : {itemid : props.itemid},
+                data : {'itemid' : itemid},
                 success : function(res){
-                    console.log(res)
+                    console.log(Res)
                 }
             })
         },

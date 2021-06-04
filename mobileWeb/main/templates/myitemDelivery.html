@@ -1,0 +1,240 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+<section class="mid_sec">
+    <div class="cont_title ">
+        <h3 class="cont_tit">
+            주문조회
+        </h3>
+    </div>
+    <div class="mid_cont">
+        <h4 class="chasetit">
+            주문조회
+        </h4>
+        <div class="midcont_window-wrap">
+            <div class="midcont_window">
+                <div class="miditemwrap">
+                    <!-- 배송전아이템박스 -->
+                    <div class="chase_detail">
+                        <span class="chase_number">
+                            00000000000
+                        </span>
+                        <span class="goto_detail">
+                            상세보기
+                        </span>
+                    </div>
+                    <div class="miditem">
+                        <div class="mid_imgwrap">
+                            <img src="http://placehold.it/50x50" alt="item">
+                        </div>
+                        <div class="miditem_desc">
+                            <span >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex incidunt voluptas dicta eveniet quisquam quis veniam aspernatur vero neque harum. Laborum, quibusdam. Repellat deserunt animi aut? Nesciunt ipsam provident quae.</span>
+                            <span>주문날짜</span>
+                            <button class="cl_cancel lt_btn">주문취소</button>
+                            <span>가격</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="miditemwrap">
+                    <!-- 배송중인아이템박스 -->
+                    <div class="chase_detail">
+                        <span class="chase_number">
+                            00000000000
+                        </span>
+                        <span class="goto_detail">
+                            상세보기
+                        </span>
+                    </div>
+                    <div class="miditem">
+                        <div class="mid_imgwrap">
+                            <img src="http://placehold.it/50x50" alt="item">
+                        </div>
+                        <div class="miditem_desc">
+                            <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex incidunt voluptas dicta eveniet quisquam quis veniam aspernatur vero neque harum. Laborum, quibusdam. Repellat deserunt animi aut? Nesciunt ipsam provident quae.</span>
+                            <span>주문날짜</span>
+                            <button class="delichase lt_btn">배송추적</button>
+                            <span>가격</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="miditemwrap fin_deli">
+                    <!-- 배송완료된아이템박스 -->
+                    <div class="chase_detail">
+                        <span class="chase_number">
+                            00000000000
+                        </span>
+                        <span class="goto_detail">
+                            상세보기
+                        </span>
+                    </div>
+                    <div class="miditem">
+                        <div class="mid_imgwrap">
+                            <img src="http://placehold.it/50x50" alt="item">
+                        </div>
+                        <div class="miditem_desc">
+                            <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex incidunt voluptas dicta eveniet quisquam quis veniam aspernatur vero neque harum. Laborum, quibusdam. Repellat deserunt animi aut? Nesciunt ipsam provident quae.</span>
+                            <span>주문날짜</span>
+                            <div class="bl_btnwrap">
+                                <button class="bl_chan bl_btn st_btn">교환</button>
+                                <button class="bl_refund bl_btn st_btn">반품</button>
+                            </div>
+                            <span>가격</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 교환반품모달 -->
+                <div class="refund_bg modalbackground">
+                    <div class="refundmodal_bg">
+                        <div class="backimg">
+                            <img src="../img/logo.svg" alt="백그라운드">
+                        </div>
+                        <div class="call_back noneback">
+                            <img src="../img/del.svg" alt="뒤로가기">
+                        </div>
+                        <div class="refund_form">
+                            <div class="formthird">
+                                <div class="refund_reason">
+                                    <span><span class="transtext"></span>사유</span>
+                                </div>
+                                <ul class="mytextselect">
+                                    <li>
+                                        <input type="checkbox" class="check4" id="check4">
+                                        <label for="check4">상품이 마음에 들지않음(단순변심)</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" class="check5" id="check5">
+                                        <label for="check5"> 상품파손/상품불량</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" class="check6" id="check6">
+                                        <label for="check6">오배송</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" class="check7" id="check7">
+                                        <label for="check7">일부상품누락</label>
+                                    </li>
+                                </ul>
+                                <div class="formthird_btnwrap">
+                                    <button class="formthird_btn medium_btn"> <span class="transtext"></span>신청</button>
+                                </div>
+                            </div>
+                            <div class="formfourth">
+                                <p class="refund_text">
+                                    <span class="transtext"></span>이 신청되었습니다
+                                </p>
+                                <span class="transinfo">교환 및 반품 상황은 "메뉴>주문조회"에서 확인하실 수 있습니다.</span>
+                                <div class="formforth_btnwrap">
+                                    <button class="formfourth_btn medium_btn">확인</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- e-교환반품모달 -->
+                <!--구매취소모달 -->
+                <div class="cancel_bg modalbackground">
+                    <div class="cancelmodal_bg">
+                        <div class="backimg">
+                            <img src="../img/logo.svg" alt="백그라운드">
+                        </div>
+                        <div class="call_back noneback">
+                            <img src="../img/del.svg" alt="뒤로가기">
+                        </div>
+                        <div class="cancel_form">
+                            <div class="formfirst">
+                                <div class="cancel_reason">
+                                    <span>구매취소 사유</span>
+                                </div>
+                                <ul class="mytextselect">
+                                    <li>
+                                        <input type="checkbox" class="check0" id="check0">
+                                        <label for="check0">상품이 마음에 들지않음(단순변심)</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" class="check1" id="check1">
+                                        <label for="check1"> 다른 상품 추가구매 계획</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" class="check2" id="check2">
+                                        <label for="check2">배송이 늦어짐</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox"  class="check3" id="check3">
+                                        <label for="check3">기타/없음</label>
+                                    </li>
+                                </ul>
+                                <div class="formfirst_btnwrap">
+                                    <button class="formfirst_btn medium_btn">구매취소</button>
+                                </div>
+                            </div>
+                            <div class="formsecond">
+                                <p class="cancel_text">
+                                    구매가 취소되었습니다
+                                </p>
+                                <div class="formsecond_btnwrap">
+                                    <button class="formsecond_btn medium_btn">확인</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- e-구매취소모달 -->
+            </div>
+        </div>
+    </div>
+</section>
+<section class="mid_sec">
+    <div class="mid_cont">
+        <h4 class="chasetit">
+            교환/반품 현황
+        </h4>
+        <div class="midcont_window-wrap">
+            <div class="midcont_window2">
+                <div class="miditemwrap">
+                    <div class="chase_detail">
+                        <span class="chase_number">
+                            00000000000
+                        </span>
+                        <span class="goto_detail">
+                            상세보기
+                        </span>
+                    </div>
+                    <div class="miditem">
+                        <div class="mid_imgwrap">
+                            <img src="http://placehold.it/50x50" alt="item">
+                        </div>
+                        <div class="miditem_desc">
+                            <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex incidunt voluptas dicta eveniet quisquam quis veniam aspernatur vero neque harum. Laborum, quibusdam. Repellat deserunt animi aut? Nesciunt ipsam provident quae.</span>
+                            <span>교환/반품 신청날짜</span>
+                            <span class="rtf_state">교환신청완료</span>
+                            <span>가격</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="miditemwrap">
+                    <div class="chase_detail">
+                        <span class="chase_number">
+                            00000000000
+                        </span>
+                        <span class="goto_detail">
+                            상세보기
+                        </span>
+                    </div>
+                    <div class="miditem">
+                        <div class="mid_imgwrap">
+                            <img src="http://placehold.it/50x50" alt="item">
+                        </div>
+                        <div class="miditem_desc">
+                            <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex incidunt voluptas dicta eveniet quisquam quis veniam aspernatur vero neque harum. Laborum, quibusdam. Repellat deserunt animi aut? Nesciunt ipsam provident quae.</span>
+                            <span>교환/반품 신청날짜</span>
+                            <span class="rtf_state">반품신청완료</span>
+                            <span>가격</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

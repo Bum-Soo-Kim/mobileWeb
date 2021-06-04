@@ -1,6 +1,7 @@
 from django.urls import path
 
-from .API import main, login, join, howto,clean, wrap, payment, about,cart, shoplist, shopinfo
+from .API import main, login, join, howto,clean, wrap, payment, about,cart, shoplist, shopinfo, coupon, point, cscenter, delivery_detail, rtf_detail, mydelivery, myinfo,\
+    myitemdelivery, mypage, myreview
 from .API.admin import main as admin_main, user, product
 
 urlpatterns = [
@@ -42,6 +43,36 @@ urlpatterns = [
 
     #shopinfo
     path('shopinfo/',shopinfo.renderPage),
+
+    #coupon
+    path('coupon/',coupon.renderPage),
+
+    #point
+    path('point/',point.renderPage),
+
+    #cscenter
+    path('cscenter/',cscenter.renderPage),
+
+    #delivery Detail
+    path('deliveryDetail/',delivery_detail.renderPage),
+
+    #rtf Detail
+    path('rtfDetail/', rtf_detail.renderPage),
+    
+    #mydelivery
+    path('mydelivery/',mydelivery.renderPage),
+
+    #myinfo
+    path('myinfo/',myinfo.renderPage),
+
+    #myitemdelivery
+    path('myitemdelivery/',myitemdelivery.renderPage),
+
+    #mypage
+    path('mypage/',mypage.renderPage),
+
+    #myreview
+    path('myreview/',myreview.renderPage),
 ]
 
 adminurlpath =[

@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+<div class="backpage_title">
+    <div class="page_back">
+        <a href="#none">
+            <img src="../img/agl.svg" alt="back">
+        </a>
+    </div>
+    <h2 class="backpage_tit">비회원주문/결제</h2>
+</div>
+<div class="content">
+    <div class="item_info">
+        <div class="payinfo_titwrap">
+            <h3 class="payinfo_tit">주문상품 정보</h3>
+        </div>
+        <div class="paypick_window">
+            <div class="pickitem_wrap">
+                <div class="pickitem_img">
+                    <img src="http://placehold.it/500x500" alt="item">
+                </div>
+                <div class="pickitem_desc">
+                    <span class="pickitem_tit">
+                        lorem ipsum
+                    </span>
+                    <span class="pay_quantity">
+                        수량: 1개
+                    </span>
+                    <span class="pay_price">
+                        10,000원
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="total">
+            <p>총 결제 금액</p>
+            <p>
+                <span class="total_price">10,000</span>원
+            </p>
+        </div>
+    </div>
+</div>
+<div class="delivery">
+    <div class="ncrew_delivery">
+        <div class="payment_infotitlewrap">
+            <h3 class="payment_info">배송지 정보</h3>
+        </div>
+        <div class="ncrew_loginwrap">
+            <span class="ncrew_text">
+                회원으로 주문하기
+            </span>
+            <button class="ncrew_login st_btn">
+                로그인
+            </button>
+            <!-- 버튼클릭시 로그인페이지이동 -->
+        </div>
+        <div class="payge_wrapper click_e">
+            <p>수령인</p>
+            <div class="box">
+                <input class="n_input" id="nameinput" type="text" maxlength="20" placeholder="이름">
+            </div>
+        </div>
+        <div class="payge_wrapper click_e"> 
+            <p>연락처</p>
+            <div class="box">
+                <input id="phoneinput" type="text" maxlength="20" placeholder="-없이 번호입력">
+            </div>
+        </div>
+        <div class="payge_wrapper click_e">
+            <p>배송지 주소</p>
+            <div class="address1">
+                <div class="box">
+                    <input id="addressinput1" type="text">
+                    <button class="address_btn">검색</button>
+                </div>
+            </div>
+        </div>
+        <div class="payment_wrapper click_e">
+            <div class="address2">
+                <div class="box">
+                    <input id="addressinput2" type="text" placeholder="나머지 주소 입력">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="payge_tab">
+    <h3 class="payment_info">결제 정보</h3>
+    <div class="pay">
+        <div class="card">
+            <a href="#none">
+                <img src="../img/card.svg" alt="card">
+                <span>신용카드</span>
+            </a>
+        </div>
+        <div class="phone">
+            <a href="#none">
+                <img src="../img/phone.svg" alt="phone">
+                <span>휴대전화</span>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="pay_btnwrap">
+    <button class="pay_btn large_btn">결제하기</button>
+</div>
+
+<!-- 결제모달창 -->
+<div class="ncrew_bg">
+    <div class="ncrew_alert">
+        <div class="backimg">
+            <img src="../img/logo.svg" alt="">
+        </div>
+        <div class="alert_textin">
+            <div class="alert_text">
+                <h4 class="ncrew_alert-tit">
+                    비회원결제완료
+                </h4>
+                <span class="ncrew_alert-sub">
+                    비회원 주문조회는<br>'메뉴>비회원주문조회>주문번호입력'<br>으로 확인가능합니다
+                </span>
+                <div class="give_number">
+                    <p class="delinum">주문번호 : <span class="giv_num">00000000</span></p>
+                </div>
+                <div class="finish_payment">
+                    <button class="finnish_paybtn medium_btn">확인</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 오류모달창 정보입력오류있을시-->
+<div class="noneinfo_bg">
+    <div class="noneinfo_alert">
+        <div class="backimg">
+            <img src="../img/logo.svg" alt="">
+        </div>
+        <div class="noneinfo_textin">
+            <div class="noneinfo_text">
+                <h4 class="noneinfo_alert-tit">
+                    결제오류
+                </h4>
+                <span class="noneinfo_alert-sub">
+                    입력하지 않은 정보가 있습니다!
+                </span>
+                <div class="readfin_wrap">
+                    <button class="readfin_btn medium_btn">확인</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

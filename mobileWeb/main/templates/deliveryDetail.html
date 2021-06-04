@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+<div class="deli_detailtitle">
+    <div class="page_back">
+        <a href="#none">
+            <img src="{% static 'image/agl.svg' %}" alt="뒤로가기">
+        </a>
+    </div>
+    <h3>주문상세</h3>
+</div>
+<div class="deli_detail-sec">
+    <div class="deli-detail_wrap">
+        <div class="detail_itempart">
+            <div class="item_number">
+                <p class="order_number">0000000</p>
+                <span class="date">2021.00.00</span>
+            </div>
+            <div class="order_detail">
+                <div class="order_detail-img">
+                    <img src="http://placehold.it/50x50" alt="item">
+                </div>
+                <div class="order_detail-gruop">
+                    <div class="order_flexbox">
+                        <p class="order_line">상품명</p>
+                        <span class="or_subline or_name">Lorem ipsum dolor sit amet</span>
+                    </div>
+                    <div class="order_flexbox">
+                        <p class="order_line">배송상태</p>
+                        <button class="delichase lt_btn">배송추적</button>
+                    </div>
+                    <div class="order_flexbox">
+                        <p class="order_line">수량</p>
+                        <span class="or_subline">1</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="detail_delipart">
+            <div class="deli_detail-title">
+                <p class="deli_detail_tit">배송지 정보</p>
+            </div>
+            <div class="deli_detail">
+                <div class="deli_flexbox">
+                    <p class="di_p">
+                        수령인
+                    </p>
+                    <span class="di_name">lorem</span>
+                </div>
+                <div class="deli_flexbox">
+                    <p class="di_p">
+                        전화번호
+                    </p>
+                    <span class="di_name">01000000000</span>
+                </div>
+                <div class="deli_flexbox">
+                    <p class="di_p">
+                        배송지
+                    </p>
+                    <span class="di_name">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+                </div>
+            </div>
+        </div>
+        <div class="detail_paypart">
+            <div class="pay_detail-title">
+                <p class="pay_detail_tit">결제정보</p>
+            </div>
+            <div class="pay_detail">
+                <div class="pay_flexbox">
+                    <p class="pd_p">
+                        상품합계
+                    </p>
+                    <div class="pdprice_wrap">
+                        <span class="pd_name">10000</span>
+                        원
+                    </div>
+                </div>
+                <div class="pay_flexbox">
+                    <p class="pd_p">
+                        할인정보
+                    </p>
+                    <div class="pdprice_wrap">
+                        <div class="discount_flex">
+                            <span class="pd_dis">쿠폰 : </span>
+                            <span class="pd_dis minusp">-10%</span>
+                        </div>
+                        <div class="discount_flex">
+                            <span class="pd_dis">포인트 : </span>
+                            <span class="pd_dis minusp">100 <span>P</span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pay_flexbox">
+                    <p class="pd_p">
+                        결제수단
+                    </p>
+                    <span class="pd_name">신용카드</span>
+                </div>
+                <div class="pay_flexbox price_total-box">
+                    <p class="pd_total-p">
+                        최종결제합계
+                    </p>
+                    <div class="pdprice_wrap">
+                        <span class="pd_total">8900</span>
+                        원
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

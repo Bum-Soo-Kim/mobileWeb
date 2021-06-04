@@ -6,7 +6,7 @@
     <hr class="underline">
 </div>
 <div class="content">
-    <ul class="items_wrap">
+    <ul class="items_wrap" id='itemList'>
         <li class="item">
             <a href="#none">
                 <div class="imgwrap">
@@ -82,7 +82,15 @@
                     success : function(res){
                         if(res.code == 1){
                             for(let i = 0; i<res.length;i++){
-
+                                $('#itemList').append(
+                                    '<li class="item">' + 
+                                    '<a href="http://127.0.0.1/productdetail/ '+ res.productid +'/">' + 
+                                    '<div class="imgwrap">' +
+                                    '<img src="' + res.image + '" alt="item"></div>' + 
+                                    '<div class="shop_desc">' + 
+                                    '<h3>lorem ipsum</h3>' + 
+                                    '<p> <span>'+res.price.toLocaleString('ko-KR')+'</span>원</p></div></a></li>'
+                                )
                             }
                         }else{
                             alert(res.msg)
@@ -94,6 +102,7 @@
         $.extend(list_func,{
             init : function(){
                 props.event();
+                props.getData();
             }
         })
         return list_func;

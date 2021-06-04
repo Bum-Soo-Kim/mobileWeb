@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+<section class="myreview_sec">
+    <div class="cont_title">
+        <h3 class="cont_tit">리뷰관리</h3>
+    </div>
+    <div class="goto_review review_ab">
+        <div class="gtreview">
+            <p class="gttitle resub_tit">
+                리뷰작성
+            </p>
+            <div class="review_itembox1">
+                <div class="itembox_wrap">
+                    <div class="review_itemimg">
+                        <img src="http://placehold.it/50x50" alt="item">
+                    </div>
+                    <div class="review_itemname">
+                        <span class="tem_name">lorem</span>
+                        <span class="tem_opt">lorem</span>
+                        <div class="review_btnwrap">
+                            <button class="write_review lt_btn">리뷰작성</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="end_review review_ab">
+        <div class="edreview">
+            <p class="edtitle resub_tit">
+                리뷰내역
+            </p>
+        <!-- 작성한리뷰박스 -->
+            <div class="review_itembox2">
+                <div class="itembox_wrap">
+                    <div class="review_itemimg">
+                        <img src="http://placehold.it/50x50" alt="item">
+                    </div>
+                    <div class="review_itemname">
+                        <span class="tem_name">lorem</span>
+                        <span class="tem_opt">lorem</span>
+                        <span class="tem_date">2021.00.00</span>
+                        <div class="review_btnwrap">
+                            <button class="review_chan st_btn">수정</button>
+                            <button class="review_del st_btn">삭제</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="review_article">
+                    <span>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque dolores dolorum, expedita soluta fugit dolorem consequatur maiores minima illo inventore incidunt nesciunt aut in, quae non voluptate laborum harum commodi.
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 리뷰작성 및 수정 모달 -->
+    <div class="review_bg">
+        <div class="review_modal">
+            <div class="back_rmwrap">
+                <img src="../img/del.svg" alt="뒤로가기" class="back_rm">
+            </div>
+            <div class="temnamebox">
+                <span class="tem_name">lorem</span>
+                <span class="tem_opt">lorem</span>
+            </div>
+            <div class="review_form">
+                <label for="review_tit">
+                  <span class="review_gui">리뷰제목</span>
+                </label>
+                <div class="review_titlebox">
+                    <input type="text" id="review_tit" placeholder="리뷰제목을 작성하세요">
+                </div>
+                <label for="review">
+                    <span class="review_gui">
+                        리뷰내용을 작성하세요
+                    </span>
+                </label>
+                <textarea name="review" id="review" cols="30" rows="10"></textarea>
+                <div class="review_done">
+                    <button class="review_donebtn medium_btn">확인</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

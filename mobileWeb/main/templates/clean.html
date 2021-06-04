@@ -128,4 +128,31 @@
         </div>
     </div>
 </div>
+<script>
+    var CLEAN_FUNC = {};
+
+    (function(clean_func){
+        var props = {
+
+        };
+        $.extend(props,{
+            event : function(){
+
+            },
+        });
+
+        $.extend(clean_func,{
+            init : function(){
+                props.event();
+            }
+        })
+
+        return clean_func;
+    }(CLEAN_FUNC));
+
+    $(document).ready(function(){
+        CLEAN_FUNC.init();
+    })
+
+</script>
 {% endblock %}

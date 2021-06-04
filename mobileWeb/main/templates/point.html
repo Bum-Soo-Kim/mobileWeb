@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+<div class="backpage_title">
+    <div class="page_back">
+        <a href="#none">
+            <img src="{% static 'image/agl.svg' %}" alt="back">
+        </a>
+    </div>
+    <h2 class="backpage_tit">포인트</h2>
+</div>
+<div class="cp_section">
+    <div class="cp_upper">
+        <h4 class="total_point">총 포인트 : <span class="total_number">0</span>P</h4>
+    </div>
+    <div class="my_cp">
+        <div class="my_cp-tit">
+            <p class="info_cp">
+                포인트사용 및 적립 내역
+            </p>
+        </div>
+        <div class="usecp_window-wrap">
+            <div class="usecp_window">
+                <div class="usecp_pointwrap">
+                    <span class="point_title">
+                        결제사용차감
+                    </span>
+                    <div class="point_detail">
+                        <span class="point_num">
+                            <span class="minusp">- 100</span> P
+                        </span>
+                        <span class="point_date">
+                            <span class="py">00</span>.
+                            <span class="pm">00</span>.
+                            <span class="pd">00</span>.
+                        </span>
+                    </div>
+                </div>
+                <div class="usecp_pointwrap">
+                    <span class="point_title">
+                        결제적립
+                    </span>
+                    <div class="point_detail">
+                        <span class="point_num">
+                            <span class="addp">+ 100</span> P
+                        </span>
+                        <span class="point_date">
+                            <span class="py">00</span>.
+                            <span class="pm">00</span>.
+                            <span class="pd">00</span>.
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
