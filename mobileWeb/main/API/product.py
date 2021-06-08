@@ -20,9 +20,9 @@ def getList(request):
     result = {'code': '', 'msg': '', 'data': []}
 
     try:
-        productlist = ProductInfo.objects.all()
+        productlist = ProductInfo.objects.filter(isSell = 'Y')
         for row in productlist:
-            jsondata = {'pid': row.pid, 'name': row.name, 'price': row.price}
+            jsondata = {'pid': row.pid, 'name': row.name, 'price': row.price, 'mainImage' : row.main_image}
             result['data'].append(jsondata)
 
     except Exception as e:
@@ -37,11 +37,9 @@ def getDetail(request):
     try:
         pid = request.POST.get('pid')
         product = ProductInfo.objects.filter(id=pid)
-        tmp = []
         for row in product:
-            tmp.append(row)
-
-        print(tmp)
+            jsondata = {'pid': row.pid, 'name': row.name, 'price': row.price, 'mainImage' : row.main_image, 'productImage':row.product_image}
+            result['data'].append(jsondata)
 
     except Exception as e:
         raise e

@@ -46,7 +46,7 @@ class ProductInfo(TimeModel):
     main_image = models.FileField(max_length=255, verbose_name='메인 이미지')
     video_url = models.CharField(max_length=255, verbose_name='영상 url')
     product_image = models.FileField(verbose_name='상품 설명', null=True)
-    isSell = models.BooleanField(verbose_name='판매 여부')
+    isSell = models.CharField(max_length = 10, verbose_name='판매 여부')
 
     def __int__(self):
         return self.id
