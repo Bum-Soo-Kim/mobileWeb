@@ -153,3 +153,16 @@ class OrderTable(TimeModel):
     ]
 
     ordernum = models.IntegerField(verbose_name= '주문번호')
+
+
+class PointHistory(TimeModel):
+    user = models.ForeignKey('UserInfo',on_delete=models.CASCADE)
+    point = models.CharField(max_length=20, verbose_name='변경 포인트')
+
+class CouponList(TimeModel):
+    name = models.CharField(max_length=255, verbose_name='쿠폰명')
+    price = models.IntegerField(verbose_name='쿠폰 금액')
+
+class UserCoupon(TimeModel):
+    user = models.ForeignKey(UserInfo,on_delete=models.CASCADE)
+    coupon = models.ForeignKey(CouponList,on_delete=models.CASCADE)
