@@ -146,14 +146,16 @@ class CleanReview(TimeModel):
         verbose_name = '세척 리뷰'
         verbose_name_plural = '세척 리뷰'
 
-class OrderTable(TimeModel):
+class ProductOrder(TimeModel):
     ORDER_TYPE = [
         ('nonmem','비회원'),
         ('mem','회원')
     ]
 
-    ordernum = models.IntegerField(verbose_name= '주문번호')
+    ordernum = models.CharField(max_length=255,verbose_name= '주문번호')
 
+class CleanOrder(TimeModel):
+    ordernum=models.CharField(max_length=255, verbose_name='주문번호')
 
 class PointHistory(TimeModel):
     user = models.ForeignKey('UserInfo',on_delete=models.CASCADE)
@@ -162,7 +164,10 @@ class PointHistory(TimeModel):
 class CouponList(TimeModel):
     name = models.CharField(max_length=255, verbose_name='쿠폰명')
     price = models.IntegerField(verbose_name='쿠폰 금액')
+    expdate = models.IntegerField(verbose_name='사용기한')
+    isUse = models.CharField(max_length=10, verbose_name='사용유무')
 
 class UserCoupon(TimeModel):
     user = models.ForeignKey(UserInfo,on_delete=models.CASCADE)
     coupon = models.ForeignKey(CouponList,on_delete=models.CASCADE)
+    isUse = models.CharField(max_length= 10, verbose_name='사용 여부')
