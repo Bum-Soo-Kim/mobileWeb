@@ -217,8 +217,8 @@ class PointHistory(TimeModel):
 class CouponList(TimeModel):
     name = models.CharField(max_length=255, verbose_name='쿠폰명')
     price = models.IntegerField(verbose_name='쿠폰 금액')
-    expdate = models.IntegerField(verbose_name='사용기한')
-    isUse = models.CharField(max_length=10, verbose_name='사용유무')
+    expdate = models.IntegerField(verbose_name='사용기한',null=True)
+    isUse = models.CharField(max_length=10, verbose_name='사용유무', null=True)
 
     class Meta:
         db_table = 'coupon_list'
@@ -228,7 +228,7 @@ class CouponList(TimeModel):
 class UserCoupon(TimeModel):
     user = models.ForeignKey(UserInfo,on_delete=models.CASCADE)
     coupon = models.ForeignKey(CouponList,on_delete=models.CASCADE)
-    isUse = models.CharField(max_length= 10, verbose_name='사용 여부')
+    isUse = models.CharField(max_length= 10, verbose_name='사용 여부', null=True)
 
     class Meta:
         db_table = 'user_coupon'
