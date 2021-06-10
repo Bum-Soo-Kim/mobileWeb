@@ -19,6 +19,8 @@ def getList(request):
             tmp = {''}
             result['product'].append(tmp)
 
+        result['code']=1
+
     except Exception as e:
         raise e
 

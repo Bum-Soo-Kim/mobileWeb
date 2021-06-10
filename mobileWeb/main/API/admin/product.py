@@ -63,7 +63,9 @@ def deleteData(request):
         product = ProductInfo.objects.filter(id = idx)
         product.isSell = 'N'
         product.save()
-    
+
+        result['code']=1
+
     except Exception as e:
         result['code'] = e
         result['msg'] = e

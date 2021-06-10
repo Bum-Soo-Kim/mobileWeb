@@ -14,7 +14,7 @@ def getList(request):
         for row in object:
             tmp = {}
             result['data'].append(tmp)
-
+        result['code']=1
     except Exception as e:
         raise e
 
@@ -32,6 +32,7 @@ def getDetail(request):
                     'company':row.company, 'invoice':row.invoice, 'payment':row.payment}
             result['data'].append(tmp)
 
+        result['code']=1
 
     except Exception as e:
         raise e

@@ -17,11 +17,11 @@ def getList(request):
 
     try:
         userinfo = UserInfo.objects.all()
-
+        
         for idx in userinfo:
             tmp = {''}
             result['data'].append(tmp)
-
+        
 
     except Exception as e:
         raise e

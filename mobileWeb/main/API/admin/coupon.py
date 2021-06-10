@@ -15,6 +15,8 @@ def couponList(request):
             tmp = {'name':row.name, 'price':row.price}
             result['data'].append(tmp)
 
+        result['code']=1
+
     except Exception as e:
         raise e
 
@@ -35,6 +37,8 @@ def newCoupon(request):
             isUse = 'Y'
         )
 
+        result['code']=1
+
     except Exception as e:
         raise e
 
@@ -48,6 +52,8 @@ def deleteCoupon(request):
         coupon = CouponList.objects.filter(id = idx)
         coupon.isUse='N'
         coupon.save()
+
+        result['code']=1
 
     except Exception as e:
         raise e
@@ -65,6 +71,7 @@ def addToUser(request):
             coupon = cid,
             isUse = 'Y'
         )
+        result['code']=1
 
     except Exception as e:
         raise e
