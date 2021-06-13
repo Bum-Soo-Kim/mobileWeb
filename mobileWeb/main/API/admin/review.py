@@ -24,5 +24,5 @@ def getList(request):
     except Exception as e:
         raise e
 
-
     return HttpResponse(json.dumps(json))
+
