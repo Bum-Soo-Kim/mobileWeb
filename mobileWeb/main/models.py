@@ -7,7 +7,7 @@ import MySQLdb
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.core.validators import MaxValueValidator, MinValueValidator
-import birthday, MySQLdb
+import birthday
 
 class DB :
 	def convertFetch2Json(self, cursor, one=False):

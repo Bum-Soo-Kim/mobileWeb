@@ -27,7 +27,7 @@ def getData(request):
                         "   po.invoice      AS  invoice,    "
                         "   po.paymnet      AS  payment,    "
                         "   po.price        AS  price       "
-                        "FROM payment_order po              "
+                        "FROM product_order po              "
                         "JOIN "
                         "WHERE po.user_id = {0}             ").format(uid)
 
@@ -47,8 +47,43 @@ def getData(request):
         cursor.execute(sql)
         tmp = DB().convertFetch2Json(cursor,False)
         
+        for row in tmp:
+            print(row)
+        
+    finally:
+        db.close()
 
-    except Exception as e:
-        raise e
+    return HttpResponse(json.dumps(result))
+
+def getDetail(request):
+    result = {'code':'','msg':'','data':[]}
+    db = DB().GetDB()
+
+    try:
+        cursor = db.cursor()
+        req = request.POST
+        uid = req.get('uid')
+        pid = req.get('pid')
+        type = req.get('type')
+
+        if type == 'product':
+            sql = ( "SELECT  * "
+                    "FROM product_order po  "
+                    "JOIN product_info pi ON po.product_id = pi.id  "
+                    "WHERE po.id = {0}  ").format(pid)
+        elif type == 'clean':
+            sql = ( "SELECT *    "
+                    "FROM clean_order co    "
+                    "JOIN clean_info ci ON co.clean_id = ci.id  "
+                    "WHERE ci.id = {0}  ").format(pid)
+
+        cursor.execute(sql)
+        data = db.convertFetch2Json(cursor,False)
+
+        for row in data:
+            print(row)
+
+    finally:
+        db.close()
 
     return HttpResponse(json.dumps(result))
