@@ -7,7 +7,25 @@ import MySQLdb
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.core.validators import MaxValueValidator, MinValueValidator
-import birthday
+import birthday, MySQLdb
+
+class DB :
+	def convertFetch2Json(self, cursor, one=False):
+		r = [dict((cursor.description[i][0], value) \
+					for i, value in enumerate(row)) for row in cursor.fetchall()]
+		return (r[0] if r else None) if one else r
+
+	def GetDB(self) :
+		logger = logging.getLogger(__name__)
+		try:
+			db = MySQLdb.connect(read_default_file="mysql.cnf")
+			logger.info('Success : DB Connection')
+		except Exception as ex:
+			logger.error('Fail : DB Connection')
+			logger.error(ex)
+
+		return db
+
 
 # Create your models here.
 class TimeModel(models.Model):
@@ -191,7 +209,7 @@ class CleanOrder(TimeModel):
     ]
 
     user = models.ForeignKey(UserInfo, on_delete=models.CASCADE)
-    product = models.ForeignKey(ProductInfo, on_delete=models.CASCADE)
+    product = models.ForeignKey(CleanInfo, on_delete=models.CASCADE)
     ordernum = models.CharField(max_length=255,verbose_name= '주문번호')
     address = models.CharField(max_length=255,verbose_name='배송지')
     subaddr = models.CharField(max_length=255, verbose_name='상세주소', null=True)
