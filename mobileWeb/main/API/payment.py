@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import login, authenticate
-from main.models import CleanInfo
+from main.models import CleanInfo, DB
 import json, requests
 from iamport import Iamport
 
@@ -24,11 +24,28 @@ def getData(request):
 
 def getPayment(request):
     iamport = Iamport(imp_key = '', imp_secret='')
-
     #json type 
     payload = {
         ''
     }
+
+    db = DB().GetDB()
+    result = {'code':'','msg':'','data':[]}
+
+    try:
+        cursor = db.cursor()
+        req = request.POST
+
+        uid = req.get('uid')
+        pid = req.get('pid')
+
+        sql = ("")
+
+
+    finally:
+        db.close()
+
+    return HttpResponse(json.dumps(result))
 
 def writeReview(request):
     result = {'code':1,'msg':''}
